@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APC.Science — Assay theme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --text:#20241F; --body:#4C5347; --muted:#8A9180;
+    --accent:#1F5C3D; --accent2:#2E865A;
+    --bg:#F4F1EA; --surface:#FFFEFA; --line:#E2DDD0; --gray:#E1DDCF;
+    --badgeBg:#20241F; --badgeFg:#F4F1EA;
+    --font:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:var(--font);color:var(--body);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  svg{display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3,h4{color:var(--text);}
+
+  /* top nav */
+  .topnav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.82);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line);}
+  .topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:18px;}
+  .topnav .home{font-weight:700;font-size:15px;color:var(--text);text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:7px;}
+  .topnav .home .d{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;}
+  .topnav nav{display:flex;gap:4px;flex-wrap:wrap;}
+  .topnav a.t{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:8px;transition:all .15s;}
+  .topnav a.t:hover{color:var(--text);background:var(--surface);}
+  .topnav a.t.active{color:var(--accent);background:var(--surface);}
+
+  /* logo */
+  .logo{font-weight:700;letter-spacing:-.018em;color:var(--text);white-space:nowrap;}
+  .logo .sci{font-weight:400;letter-spacing:-.01em;}
+  .logo .dot{display:inline-block;width:.2em;height:.72em;vertical-align:baseline;margin:0 .01em 0 .03em;}
+  .logo .dot circle{fill:var(--accent);}
+  .logo.on-dark{color:#fff;} .logo.on-dark .sci{color:#eef3f3;}
+
+  /* header */
+  header.hero{padding:74px 0 50px;text-align:center;border-bottom:1px solid var(--line);}
+  header.hero .logo{font-size:clamp(54px,9vw,110px);line-height:1;}
+  .tagline{margin-top:26px;font-size:clamp(.7rem,1.4vw,1rem);font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);}
+  .themechip{display:inline-block;margin-bottom:24px;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+  .blurb{max-width:680px;margin:22px auto 0;color:var(--body);font-size:1.05rem;}
+
+  /* rows */
+  .row{display:grid;gap:1px;background:var(--line);border-bottom:1px solid var(--line);}
+  .row.three{grid-template-columns:repeat(3,1fr);}
+  .cell{background:var(--surface);padding:44px 40px;}
+  @media(max-width:860px){.row.three{grid-template-columns:1fr;}}
+  .kicker{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 26px;}
+  .usewrap{min-height:120px;display:flex;align-items:center;}
+  .note{color:var(--muted);font-size:.92rem;margin:24px 0 0;max-width:340px;}
+  .rule{width:46px;height:2px;background:var(--accent);margin:20px 0 0;border-radius:2px;}
+
+  .badge{width:118px;height:118px;border-radius:50%;background:var(--badgeBg);display:flex;align-items:center;justify-content:center;}
+  .badge .logo{font-size:30px;color:var(--badgeFg);}
+  .badge .logo .sci{display:none;}
+
+  .swatches{display:flex;gap:16px;flex-wrap:wrap;}
+  .sw{width:92px;}
+  .sw .chip{height:62px;border-radius:10px;border:1px solid rgba(127,127,127,.18);}
+  .sw .name{font-size:.64rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text);margin-top:9px;}
+  .sw .hex{font-size:.68rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+
+  .bgsample{border-radius:12px;padding:28px 32px;display:flex;align-items:center;margin-bottom:16px;border:1px solid var(--line);}
+  .bgsample.lightbg{background:var(--gray);}
+  .bgsample.darkbg{background:var(--badgeBg);border-color:var(--badgeBg);}
+  .bgsample .logo{font-size:36px;}
+
+  .typo{display:flex;gap:24px;align-items:flex-start;}
+  .typo .Aa{font-size:80px;font-weight:700;line-height:.9;color:var(--text);letter-spacing:-.03em;}
+  .typo .meta h4{margin:0 0 6px;font-size:1.02rem;}
+  .typo .meta p{margin:0;color:var(--muted);font-size:.9rem;max-width:300px;}
+
+  .sys h4{margin:16px 0 6px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .sys p{margin:0;color:var(--muted);font-size:.86rem;}
+  .sysart{height:104px;display:flex;align-items:center;}
+
+  .apps{padding:52px 0 48px;}
+  .apps .kicker{text-align:center;color:var(--muted);}
+  .appgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px;}
+  @media(max-width:860px){.appgrid{grid-template-columns:1fr;}}
+  .app{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 34px -20px rgba(0,0,0,.5);}
+
+  .pager{display:flex;justify-content:space-between;gap:16px;padding:14px 0 70px;}
+  .pager a{font-size:.9rem;font-weight:600;color:var(--accent);text-decoration:none;}
+  .pager a:hover{color:var(--text);}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:0 0 54px;}
+</style>
+</head>
+<body>
+
+<div class="topnav"><div class="wrap">
+  <a class="home" href="index.html"><span class="d"></span>APC.Science · Brand Variations</a>
+  <nav><a class="t " href="meridian.html">Meridian</a><a class="t " href="catalyst.html">Catalyst</a><a class="t " href="heritage.html">Heritage</a><a class="t " href="vector.html">Vector</a><a class="t active" href="assay.html">Assay</a><a class="t " href="quanta.html">Quanta</a></nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <span class="themechip">Assay — Organic · Biotech · Calm</span>
+  <div class="logo">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div>
+  <div class="tagline">Scientific Strategy.&nbsp;&nbsp; Technical Depth.&nbsp;&nbsp; Translational Impact.</div>
+  <p class="blurb">The naturalist. Warm paper, forest green and clay — lab-notebook warmth and a life-sciences soul. Quietly premium, never sterile.</p>
+</div></header>
+
+<div class="wrap"><div class="row three">
+  <div class="cell">
+    <p class="kicker">Primary logo</p>
+    <div class="usewrap"><div class="logo" style="font-size:44px">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div>
+    <div class="rule"></div>
+    <p class="note">Digital, web, and general brand use.</p>
+  </div>
+  <div class="cell">
+    <p class="kicker">Formal lockup</p>
+    <div class="usewrap"><div class="logo" style="font-size:44px">APC&nbsp;<span class="sci">Science</span></div></div>
+    <div class="rule"></div>
+    <p class="note">Reports, decks, institutional materials. No dot.</p>
+  </div>
+  <div class="cell">
+    <p class="kicker">Compact mark</p>
+    <div class="usewrap"><div class="badge"><div class="logo">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div></div>
+    <div class="rule"></div>
+    <p class="note">Favicon, social, and small spaces.</p>
+  </div>
+</div></div>
+
+<div class="wrap"><div class="row three">
+  <div class="cell">
+    <p class="kicker">Color palette</p>
+    <div class="swatches"><div class="sw"><div class="chip" style="background:#20241F"></div><div class="name">Forest Ink</div><div class="hex">#20241F</div></div><div class="sw"><div class="chip" style="background:#1F5C3D"></div><div class="name">Forest</div><div class="hex">#1F5C3D</div></div><div class="sw"><div class="chip" style="background:#C2704B"></div><div class="name">Clay</div><div class="hex">#C2704B</div></div><div class="sw"><div class="chip" style="background:#E1DDCF"></div><div class="name">Linen</div><div class="hex">#E1DDCF</div></div><div class="sw"><div class="chip" style="background:#F4F1EA"></div><div class="name">Paper</div><div class="hex">#F4F1EA</div></div></div>
+    <p class="kicker" style="margin-top:38px">Typography</p>
+    <div class="typo"><div class="Aa">Aa</div><div class="meta"><h4>DM Sans / low-contrast sans</h4><p>Soft, friendly geometry with excellent legibility. Approachable and grounded.</p></div></div>
+  </div>
+  <div class="cell">
+    <p class="kicker">Logo on background</p>
+    <div class="bgsample lightbg"><div class="logo">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div>
+    <div class="bgsample darkbg"><div class="logo on-dark">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div>
+    <p class="note">Keep one cap-height of clear space. The dot always carries the accent.</p>
+  </div>
+  <div class="cell sys">
+    <p class="kicker">Brand system elements</p>
+    <div class="sysart"><svg width="150" height="92" viewBox="0 0 150 92"><circle cx="4" cy="6" r="2.4" fill="#9aa3af"/><circle cx="16" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="28" cy="6" r="2.4" fill="#1F5C3D"/><circle cx="40" cy="6" r="2.4" fill="#20241F"/><circle cx="52" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="64" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="76" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="88" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="100" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="112" cy="6" r="2.4" fill="#9aa3af"/><circle cx="124" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="136" cy="6" r="2.4" fill="#E1DDCF"/><circle cx="4" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="16" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="28" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="40" cy="18" r="2.4" fill="#1F5C3D"/><circle cx="52" cy="18" r="2.4" fill="#20241F"/><circle cx="64" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="76" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="88" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="100" cy="18" r="2.4" fill="#9aa3af"/><circle cx="112" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="124" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="136" cy="18" r="2.4" fill="#E1DDCF"/><circle cx="4" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="16" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="28" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="40" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="52" cy="30" r="2.4" fill="#1F5C3D"/><circle cx="64" cy="30" r="2.4" fill="#20241F"/><circle cx="76" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="88" cy="30" r="2.4" fill="#9aa3af"/><circle cx="100" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="112" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="124" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="136" cy="30" r="2.4" fill="#E1DDCF"/><circle cx="4" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="16" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="28" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="40" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="52" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="64" cy="42" r="2.4" fill="#1F5C3D"/><circle cx="76" cy="42" r="2.4" fill="#20241F"/><circle cx="88" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="100" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="112" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="124" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="136" cy="42" r="2.4" fill="#E1DDCF"/><circle cx="4" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="16" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="28" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="40" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="52" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="64" cy="54" r="2.4" fill="#9aa3af"/><circle cx="76" cy="54" r="2.4" fill="#1F5C3D"/><circle cx="88" cy="54" r="2.4" fill="#20241F"/><circle cx="100" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="112" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="124" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="136" cy="54" r="2.4" fill="#E1DDCF"/><circle cx="4" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="16" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="28" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="40" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="52" cy="66" r="2.4" fill="#9aa3af"/><circle cx="64" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="76" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="88" cy="66" r="2.4" fill="#1F5C3D"/><circle cx="100" cy="66" r="2.4" fill="#20241F"/><circle cx="112" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="124" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="136" cy="66" r="2.4" fill="#E1DDCF"/><circle cx="4" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="16" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="28" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="40" cy="78" r="2.4" fill="#9aa3af"/><circle cx="52" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="64" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="76" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="88" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="100" cy="78" r="2.4" fill="#1F5C3D"/><circle cx="112" cy="78" r="2.4" fill="#20241F"/><circle cx="124" cy="78" r="2.4" fill="#E1DDCF"/><circle cx="136" cy="78" r="2.4" fill="#E1DDCF"/></svg></div><h4>Assay grid</h4><p>Precision. Data. High-throughput insight.</p>
+    <div class="sysart" style="margin-top:16px"><svg width="190" height="92" viewBox="0 0 190 92" fill="none">
+  <polyline points="10,78 52,66 92,50 132,30" stroke="#20241F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="132" y1="30" x2="176" y2="8" stroke="#8A9180" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+  <path d="M170 6 L178 6 L176 14" stroke="#8A9180" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="10" cy="78" r="6" fill="#1F5C3D"/>
+  <circle cx="52" cy="66" r="6" fill="#20241F"/>
+  <circle cx="92" cy="50" r="6" fill="#E1DDCF" stroke="#8A9180" stroke-width="1.4"/>
+  <circle cx="132" cy="30" r="6" fill="#1F5C3D"/>
+</svg></div><h4>Translational pathway</h4><p>Science to strategy. Discovery to impact.</p>
+    <div class="sysart" style="margin-top:16px"><svg width="170" height="92" viewBox="0 0 170 92"><circle cx="42.0" cy="48.5" r="1.3" fill="#1F5C3D" opacity="0.31"/><circle cx="41.2" cy="45.6" r="0.6" fill="#1F5C3D" opacity="0.33"/><circle cx="41.9" cy="37.3" r="0.5" fill="#1F5C3D" opacity="0.26"/><circle cx="60.2" cy="52.6" r="1.1" fill="#1F5C3D" opacity="0.16"/><circle cx="64.4" cy="44.4" r="1.1" fill="#1F5C3D" opacity="0.37"/><circle cx="50.1" cy="46.2" r="0.9" fill="#1F5C3D" opacity="0.17"/><circle cx="51.3" cy="49.4" r="0.4" fill="#1F5C3D" opacity="0.31"/><circle cx="38.2" cy="50.6" r="0.9" fill="#1F5C3D" opacity="0.37"/><circle cx="40.1" cy="46.0" r="0.9" fill="#1F5C3D" opacity="0.25"/><circle cx="64.9" cy="45.8" r="1.2" fill="#1F5C3D" opacity="0.40"/><circle cx="48.6" cy="49.2" r="0.7" fill="#1F5C3D" opacity="0.17"/><circle cx="50.6" cy="40.0" r="1.2" fill="#1F5C3D" opacity="0.29"/><circle cx="62.3" cy="42.7" r="0.4" fill="#1F5C3D" opacity="0.22"/><circle cx="56.0" cy="42.2" r="1.4" fill="#1F5C3D" opacity="0.29"/><circle cx="58.5" cy="50.2" r="1.2" fill="#1F5C3D" opacity="0.24"/><circle cx="54.3" cy="48.6" r="1.4" fill="#1F5C3D" opacity="0.42"/><circle cx="52.7" cy="48.5" r="0.5" fill="#1F5C3D" opacity="0.17"/><circle cx="50.8" cy="43.5" r="1.0" fill="#1F5C3D" opacity="0.31"/><circle cx="54.0" cy="56.2" r="0.5" fill="#1F5C3D" opacity="0.38"/><circle cx="54.7" cy="50.2" r="0.6" fill="#1F5C3D" opacity="0.24"/><circle cx="61.9" cy="43.8" r="0.7" fill="#1F5C3D" opacity="0.46"/><circle cx="51.4" cy="51.7" r="1.3" fill="#1F5C3D" opacity="0.37"/><circle cx="62.0" cy="54.7" r="0.6" fill="#1F5C3D" opacity="0.24"/><circle cx="50.7" cy="41.1" r="0.7" fill="#1F5C3D" opacity="0.18"/><circle cx="99.4" cy="44.7" r="0.6" fill="#1F5C3D" opacity="0.36"/><circle cx="87.3" cy="44.9" r="1.4" fill="#1F5C3D" opacity="0.32"/><circle cx="80.4" cy="34.1" r="0.6" fill="#1F5C3D" opacity="0.20"/><circle cx="102.3" cy="33.3" r="0.6" fill="#1F5C3D" opacity="0.22"/><circle cx="91.1" cy="25.9" r="0.6" fill="#1F5C3D" opacity="0.48"/><circle cx="98.7" cy="33.9" r="0.8" fill="#1F5C3D" opacity="0.19"/><circle cx="106.0" cy="43.5" r="0.6" fill="#1F5C3D" opacity="0.40"/><circle cx="91.5" cy="52.3" r="1.0" fill="#1F5C3D" opacity="0.25"/><circle cx="96.9" cy="49.6" r="0.5" fill="#1F5C3D" opacity="0.23"/><circle cx="80.1" cy="35.3" r="1.0" fill="#1F5C3D" opacity="0.25"/><circle cx="94.7" cy="38.5" r="0.4" fill="#1F5C3D" opacity="0.24"/><circle cx="91.1" cy="40.3" r="0.6" fill="#1F5C3D" opacity="0.28"/><circle cx="90.2" cy="39.1" r="0.8" fill="#1F5C3D" opacity="0.46"/><circle cx="101.8" cy="38.8" r="1.1" fill="#1F5C3D" opacity="0.35"/><circle cx="92.3" cy="40.4" r="0.4" fill="#1F5C3D" opacity="0.47"/><circle cx="87.6" cy="26.2" r="0.4" fill="#1F5C3D" opacity="0.37"/><circle cx="81.1" cy="41.2" r="0.7" fill="#1F5C3D" opacity="0.50"/><circle cx="99.3" cy="43.7" r="1.1" fill="#1F5C3D" opacity="0.47"/><circle cx="91.1" cy="29.5" r="1.2" fill="#1F5C3D" opacity="0.47"/><circle cx="85.9" cy="48.2" r="1.3" fill="#1F5C3D" opacity="0.45"/><circle cx="81.7" cy="45.9" r="1.3" fill="#1F5C3D" opacity="0.35"/><circle cx="87.9" cy="35.9" r="1.0" fill="#1F5C3D" opacity="0.36"/><circle cx="100.4" cy="44.6" r="1.4" fill="#1F5C3D" opacity="0.46"/><circle cx="91.2" cy="34.2" r="1.1" fill="#1F5C3D" opacity="0.35"/><circle cx="106.3" cy="60.6" r="0.5" fill="#1F5C3D" opacity="0.41"/><circle cx="126.9" cy="57.7" r="0.9" fill="#1F5C3D" opacity="0.23"/><circle cx="115.6" cy="48.9" r="1.0" fill="#1F5C3D" opacity="0.47"/><circle cx="118.0" cy="56.2" r="0.7" fill="#1F5C3D" opacity="0.39"/><circle cx="118.7" cy="58.4" r="1.3" fill="#1F5C3D" opacity="0.38"/><circle cx="105.5" cy="60.8" r="0.7" fill="#1F5C3D" opacity="0.38"/><circle cx="120.1" cy="62.1" r="1.2" fill="#1F5C3D" opacity="0.47"/><circle cx="122.2" cy="52.1" r="1.0" fill="#1F5C3D" opacity="0.26"/><circle cx="122.9" cy="61.6" r="1.2" fill="#1F5C3D" opacity="0.45"/><circle cx="114.6" cy="42.2" r="0.7" fill="#1F5C3D" opacity="0.21"/><circle cx="114.1" cy="57.3" r="0.6" fill="#1F5C3D" opacity="0.29"/><circle cx="112.8" cy="50.7" r="0.7" fill="#1F5C3D" opacity="0.44"/><circle cx="124.7" cy="55.2" r="0.5" fill="#1F5C3D" opacity="0.16"/><circle cx="118.4" cy="55.6" r="1.1" fill="#1F5C3D" opacity="0.35"/><circle cx="113.7" cy="67.1" r="0.4" fill="#1F5C3D" opacity="0.20"/><circle cx="117.6" cy="56.1" r="1.2" fill="#1F5C3D" opacity="0.23"/><circle cx="118.4" cy="56.5" r="1.0" fill="#1F5C3D" opacity="0.31"/><circle cx="111.3" cy="48.8" r="1.2" fill="#1F5C3D" opacity="0.49"/><circle cx="116.8" cy="53.3" r="0.9" fill="#1F5C3D" opacity="0.21"/><circle cx="125.1" cy="56.5" r="1.1" fill="#1F5C3D" opacity="0.21"/><circle cx="117.3" cy="61.1" r="1.1" fill="#1F5C3D" opacity="0.33"/><circle cx="109.5" cy="48.5" r="0.8" fill="#1F5C3D" opacity="0.43"/><circle cx="119.1" cy="55.3" r="1.3" fill="#1F5C3D" opacity="0.40"/><circle cx="122.7" cy="61.0" r="1.0" fill="#1F5C3D" opacity="0.47"/><circle cx="50" cy="46" r="30" fill="none" stroke="#1F5C3D" stroke-width="1.3" opacity="0.5"/><circle cx="92" cy="40" r="26" fill="none" stroke="#8A9180" stroke-width="1.3" opacity="0.45"/><circle cx="118" cy="56" r="22" fill="none" stroke="#1F5C3D" stroke-width="1.3" opacity="0.4"/></svg></div><h4>Cellular context</h4><p>Life sciences at the foundation.</p>
+  </div>
+</div></div>
+
+<div class="wrap apps">
+  <p class="kicker">In application</p>
+  <div class="appgrid">
+    <div class="app"><svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="200" fill="#FFFEFA"/>
+      <rect x="0" y="0" width="320" height="6" fill="#1F5C3D"/>
+      <text x="28" y="62" font-family="DM Sans,sans-serif" font-size="25" font-weight="700" fill="#20241F" letter-spacing="-.5">APC<tspan fill="#1F5C3D">.</tspan><tspan font-weight="400">Science</tspan></text>
+      <text x="28" y="150" font-family="DM Sans,sans-serif" font-size="9" font-weight="600" fill="#8A9180">Scientific Strategy.</text>
+      <text x="28" y="164" font-family="DM Sans,sans-serif" font-size="9" font-weight="600" fill="#8A9180">Technical Depth. Translational Impact.</text>
+      <text x="292" y="150" text-anchor="end" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" fill="#20241F">APC Science, LLC</text>
+      <text x="292" y="164" text-anchor="end" font-family="DM Sans,sans-serif" font-size="9" fill="#1F5C3D">amrit@apc.science</text>
+      <text x="292" y="178" text-anchor="end" font-family="DM Sans,sans-serif" font-size="9" fill="#8A9180">www.apc.science</text>
+    </svg></div>
+    <div class="app"><svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="200" fill="#20241F"/>
+      <circle cx="210" cy="40" r="2.3" fill="#2E865A"/><circle cx="223" cy="40" r="2.3" fill="#1f2b35"/><circle cx="236" cy="40" r="2.3" fill="#1f2b35"/><circle cx="249" cy="40" r="2.3" fill="#1f2b35"/><circle cx="262" cy="40" r="2.3" fill="#1f2b35"/><circle cx="275" cy="40" r="2.3" fill="#2E865A"/><circle cx="288" cy="40" r="2.3" fill="#1f2b35"/><circle cx="301" cy="40" r="2.3" fill="#1f2b35"/><circle cx="210" cy="53" r="2.3" fill="#1f2b35"/><circle cx="223" cy="53" r="2.3" fill="#1f2b35"/><circle cx="236" cy="53" r="2.3" fill="#1f2b35"/><circle cx="249" cy="53" r="2.3" fill="#1f2b35"/><circle cx="262" cy="53" r="2.3" fill="#2E865A"/><circle cx="275" cy="53" r="2.3" fill="#1f2b35"/><circle cx="288" cy="53" r="2.3" fill="#1f2b35"/><circle cx="301" cy="53" r="2.3" fill="#1f2b35"/><circle cx="210" cy="66" r="2.3" fill="#1f2b35"/><circle cx="223" cy="66" r="2.3" fill="#1f2b35"/><circle cx="236" cy="66" r="2.3" fill="#1f2b35"/><circle cx="249" cy="66" r="2.3" fill="#2E865A"/><circle cx="262" cy="66" r="2.3" fill="#1f2b35"/><circle cx="275" cy="66" r="2.3" fill="#1f2b35"/><circle cx="288" cy="66" r="2.3" fill="#1f2b35"/><circle cx="301" cy="66" r="2.3" fill="#1f2b35"/><circle cx="210" cy="79" r="2.3" fill="#1f2b35"/><circle cx="223" cy="79" r="2.3" fill="#1f2b35"/><circle cx="236" cy="79" r="2.3" fill="#2E865A"/><circle cx="249" cy="79" r="2.3" fill="#1f2b35"/><circle cx="262" cy="79" r="2.3" fill="#1f2b35"/><circle cx="275" cy="79" r="2.3" fill="#1f2b35"/><circle cx="288" cy="79" r="2.3" fill="#1f2b35"/><circle cx="301" cy="79" r="2.3" fill="#2E865A"/><circle cx="210" cy="92" r="2.3" fill="#1f2b35"/><circle cx="223" cy="92" r="2.3" fill="#2E865A"/><circle cx="236" cy="92" r="2.3" fill="#1f2b35"/><circle cx="249" cy="92" r="2.3" fill="#1f2b35"/><circle cx="262" cy="92" r="2.3" fill="#1f2b35"/><circle cx="275" cy="92" r="2.3" fill="#1f2b35"/><circle cx="288" cy="92" r="2.3" fill="#2E865A"/><circle cx="301" cy="92" r="2.3" fill="#1f2b35"/><circle cx="210" cy="105" r="2.3" fill="#2E865A"/><circle cx="223" cy="105" r="2.3" fill="#1f2b35"/><circle cx="236" cy="105" r="2.3" fill="#1f2b35"/><circle cx="249" cy="105" r="2.3" fill="#1f2b35"/><circle cx="262" cy="105" r="2.3" fill="#1f2b35"/><circle cx="275" cy="105" r="2.3" fill="#2E865A"/><circle cx="288" cy="105" r="2.3" fill="#1f2b35"/><circle cx="301" cy="105" r="2.3" fill="#1f2b35"/><circle cx="210" cy="118" r="2.3" fill="#1f2b35"/><circle cx="223" cy="118" r="2.3" fill="#1f2b35"/><circle cx="236" cy="118" r="2.3" fill="#1f2b35"/><circle cx="249" cy="118" r="2.3" fill="#1f2b35"/><circle cx="262" cy="118" r="2.3" fill="#2E865A"/><circle cx="275" cy="118" r="2.3" fill="#1f2b35"/><circle cx="288" cy="118" r="2.3" fill="#1f2b35"/><circle cx="301" cy="118" r="2.3" fill="#1f2b35"/><circle cx="210" cy="131" r="2.3" fill="#1f2b35"/><circle cx="223" cy="131" r="2.3" fill="#1f2b35"/><circle cx="236" cy="131" r="2.3" fill="#1f2b35"/><circle cx="249" cy="131" r="2.3" fill="#2E865A"/><circle cx="262" cy="131" r="2.3" fill="#1f2b35"/><circle cx="275" cy="131" r="2.3" fill="#1f2b35"/><circle cx="288" cy="131" r="2.3" fill="#1f2b35"/><circle cx="301" cy="131" r="2.3" fill="#1f2b35"/>
+      <text x="28" y="70" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" fill="#ffffff">Translational</text>
+      <text x="28" y="94" font-family="DM Sans,sans-serif" font-size="20" font-weight="700" fill="#ffffff">Strategy Report</text>
+      <text x="28" y="116" font-family="DM Sans,sans-serif" font-size="10" font-style="italic" fill="#2E865A">Evidence. Insight. Impact.</text>
+      <text x="28" y="178" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" fill="#ffffff">APC<tspan fill="#2E865A">.</tspan><tspan font-weight="400">Science</tspan></text>
+    </svg></div>
+    <div class="app"><svg viewBox="0 0 320 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="shassay" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".06"/><stop offset="1" stop-color="#000000" stop-opacity=".22"/></linearGradient></defs>
+      <rect width="320" height="200" fill="#2b3138"/><rect width="320" height="200" fill="url(#shassay)"/>
+      <text x="160" y="108" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="29" font-weight="700" fill="#d9dee2" letter-spacing="-1">APC<tspan fill="#2E865A">.</tspan><tspan font-weight="400">Science</tspan></text>
+    </svg></div>
+  </div>
+</div>
+
+<div class="wrap pager">
+  <a href="vector.html">← Vector</a>
+  <a href="index.html">All variations</a>
+  <a href="quanta.html">Quanta →</a>
+</div>
+
+<footer><div class="wrap">Assay — one of six APC.Science brand variations. Wordmark and system drawn as scalable vectors.</div></footer>
+</body>
+</html>

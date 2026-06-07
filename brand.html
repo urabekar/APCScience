@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APC.Science — Brand Guidelines</title>
+<meta name="description" content="The official APC Science brand system: logo, color, typography, voice, and applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1D2D; --navy-deep:#06141F;
+    --teal:#0F766E; --teal-light:#14B8A6; --teal-pale:#E6F2F0;
+    --slate:#5B6770; --ink:#1A2433;
+    --gray:#E5E7EB; --line:#E6E9EE; --off:#FAFAF8; --surface:#FFFFFF;
+    --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--off);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  svg{display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  p{color:var(--slate);}
+  h1,h2,h3,h4{color:var(--navy);letter-spacing:-.02em;line-height:1.15;}
+
+  /* ---------- logo ---------- */
+  .logo{font-weight:800;letter-spacing:-.022em;color:var(--navy);white-space:nowrap;}
+  .logo .sci{font-weight:300;letter-spacing:-.01em;}
+  .logo .dot{display:inline-block;width:.2em;height:.72em;vertical-align:baseline;margin:0 .01em 0 .03em;}
+  .logo .dot circle{fill:var(--teal);}
+  .logo.rev{color:#fff;} .logo.rev .sci{color:#e9f1f0;}
+
+  /* ---------- top nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(250,250,248,.86);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px;}
+  .nav .home{font-size:17px;color:var(--navy);text-decoration:none;}
+  .nav .home .logo{font-size:17px;}
+  .nav .links{display:flex;gap:2px;flex-wrap:wrap;}
+  .nav .links a{font-size:12.5px;font-weight:600;color:var(--slate);text-decoration:none;padding:7px 10px;border-radius:7px;transition:all .15s;}
+  .nav .links a:hover{color:var(--navy);background:var(--surface);}
+  @media(max-width:920px){.nav .links{display:none;}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:96px 0 70px;text-align:center;border-bottom:1px solid var(--line);
+    background:radial-gradient(1000px 460px at 50% -10%, rgba(15,118,110,.08), transparent 60%), var(--off);}
+  .hero .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:26px;}
+  .hero .logo{font-size:clamp(56px,10vw,120px);line-height:1;}
+  .hero .tag{margin-top:28px;font-size:clamp(.72rem,1.5vw,1.04rem);font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--slate);}
+  .hero .meta{margin-top:34px;font-size:.86rem;color:var(--slate);}
+  .hero .meta b{color:var(--navy);font-weight:600;}
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:78px 0;border-bottom:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;}
+  .sec-num{font-size:.8rem;font-weight:700;color:var(--teal);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .sec-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem);margin:0;}
+  .sec-intro{max-width:680px;font-size:1.1rem;margin:0 0 44px;}
+  h3.block{font-size:1.15rem;margin:0 0 14px;}
+  .muted-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin:0 0 18px;}
+
+  .grid{display:grid;gap:24px;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  @media(max-width:820px){.g2,.g3{grid-template-columns:1fr;}}
+
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:34px;box-shadow:0 1px 3px rgba(11,29,45,.04),0 14px 32px -22px rgba(11,29,45,.22);}
+  .panel .stage{min-height:150px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+  .panel .cap{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);}
+  .panel h4{margin:8px 0 6px;font-size:1.05rem;}
+  .panel p{margin:0;font-size:.92rem;}
+
+  /* positioning stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:8px;}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr);}}
+  .stat{background:var(--surface);padding:30px 24px;text-align:center;}
+  .stat .n{font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;}
+  .stat .l{font-size:.84rem;color:var(--slate);margin-top:4px;}
+
+  /* clear space */
+  .clearbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:40px;display:flex;justify-content:center;}
+  .csvg{width:100%;max-width:560px;}
+
+  /* misuse */
+  .dont .stage,.do .stage{border-radius:12px;background:var(--off);border:1px solid var(--line);min-height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;padding:18px;}
+  .flag{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;}
+  .flag.no{color:#b4322a;} .flag.yes{color:#0F766E;}
+  .flag i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px;}
+  .flag.no i{background:#b4322a;} .flag.yes i{background:#0F766E;}
+  .misitem p{font-size:.88rem;margin:8px 0 0;}
+
+  /* color */
+  .swatch{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);}
+  .swatch .fill{height:120px;}
+  .swatch .info{padding:16px 18px;}
+  .swatch .nm{font-weight:700;color:var(--navy);font-size:.96rem;}
+  .swatch .role{font-size:.82rem;color:var(--slate);margin:2px 0 12px;}
+  .swatch .val{font-size:.78rem;color:var(--slate);font-variant-numeric:tabular-nums;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:8px;}
+  .col4{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:820px){.col4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.col4{grid-template-columns:1fr;}}
+
+  /* type */
+  .typescale > div{border-bottom:1px solid var(--line);padding:18px 0;display:flex;align-items:baseline;justify-content:space-between;gap:20px;}
+  .typescale .spec{font-size:.76rem;color:var(--slate);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .weights{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;}
+  .weights div{text-align:center;}
+  .weights .w{font-size:34px;color:var(--navy);}
+  .weights .lab{font-size:.74rem;color:var(--slate);margin-top:4px;}
+
+  /* system elements */
+  .sysart{height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+
+  /* voice */
+  .voice{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:820px){.voice{grid-template-columns:1fr;}}
+  .vrow{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;}
+  .vrow h4{margin:0 0 6px;font-size:1.02rem;}
+  .vrow p{margin:0;font-size:.92rem;}
+  .vsays{display:flex;gap:14px;margin-top:14px;font-size:.86rem;}
+  .vsays div{flex:1;}
+  .vsays .h{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+  .vsays .we .h{color:var(--teal);} .vsays .not .h{color:#b4322a;}
+  .vsays .we p,.vsays .not p{color:var(--ink);}
+
+  /* messaging */
+  .msg{background:linear-gradient(150deg,var(--navy-deep),var(--navy));border-radius:18px;padding:46px;color:#cfe0ee;}
+  .msg .tagbig{font-size:clamp(1.4rem,3vw,2rem);color:#fff;font-weight:700;letter-spacing:-.02em;}
+  .msg .tagbig em{color:var(--teal-light);font-style:normal;}
+  .msg .lab{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-light);margin:28px 0 8px;}
+  .msg p{color:#b7c8da;margin:0;}
+  .msg .boiler{font-size:1.02rem;max-width:680px;}
+
+  /* applications */
+  .app{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 34px -22px rgba(11,29,45,.5);}
+  .appcap{font-size:.8rem;color:var(--slate);margin-top:10px;text-align:center;}
+
+  footer{padding:54px 0 70px;text-align:center;}
+  footer .logo{font-size:24px;justify-content:center;display:inline-block;}
+  footer p{font-size:.84rem;color:var(--slate);margin-top:14px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav"><div class="wrap">
+  <a class="home" href="#top"><span class="logo">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></span></a>
+  <div class="links">
+    <a href="#overview">Overview</a>
+    <a href="#logo">Logo</a>
+    <a href="#clearspace">Clear space</a>
+    <a href="#misuse">Misuse</a>
+    <a href="#color">Color</a>
+    <a href="#type">Type</a>
+    <a href="#system">System</a>
+    <a href="#voice">Voice</a>
+    <a href="#messaging">Messaging</a>
+    <a href="#applications">Applications</a>
+  </div>
+</div></div>
+
+<!-- HERO -->
+<a id="top"></a>
+<div class="hero"><div class="wrap">
+  <div class="eyebrow">Official Brand Guidelines · v1.0</div>
+  <div class="logo">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div>
+  <div class="tag">Scientific Strategy.&nbsp;&nbsp; Technical Depth.&nbsp;&nbsp; Translational Impact.</div>
+  <div class="meta"><b>Meridian</b> — the official APC Science identity. Deep navy, a teal signal, and the Inter typeface.</div>
+</div></div>
+
+<!-- 01 OVERVIEW -->
+<section id="overview"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><h2>The brand at a glance</h2></div>
+  <p class="sec-intro">APC Science is a specialist consultancy for drug developers — shaping development strategy, planning, and operations across every modality and stage, and going hands-on with the chemistry and technical development of peptide, antibody, and conjugate therapeutics. The brand has to carry two things at once: the authority of a strategist and the precision of a chemist. <em>Meridian</em> is built for exactly that — calm, clinical, and credible, with a single teal signal that marks the point where science meets strategy.</p>
+
+  <div class="grid g3">
+    <div class="panel"><div class="cap">Positioning</div><h4>Strategy and science, one partner</h4><p>The rare advisor who works both the plan and the molecule, so each is grounded in the other.</p></div>
+    <div class="panel"><div class="cap">Personality</div><h4>Senior, hands-on, candid</h4><p>An operator's judgment — built from running platforms, not just advising on them.</p></div>
+    <div class="panel"><div class="cap">Promise</div><h4>From bench to boardroom</h4><p>Molecular feasibility connected to development timelines, capital, and commercial reality.</p></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">3,000+</div><div class="l">Molecular projects delivered</div></div>
+    <div class="stat"><div class="n">120+</div><div class="l">Universities &amp; pharma partners</div></div>
+    <div class="stat"><div class="n">1M+</div><div class="l">Sq ft of R&amp;D built</div></div>
+    <div class="stat"><div class="n">$400M+</div><div class="l">Capital raised across ventures</div></div>
+  </div>
+</div></section>
+
+<!-- 02 LOGO -->
+<section id="logo"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><h2>The logo</h2></div>
+  <p class="sec-intro">The wordmark is the brand. “APC” is set in Inter at 800 weight; “Science” drops to 300 to create a confident contrast of authority and openness. Between them sits the teal dot — the fixed signal of the brand and the one element that always carries the accent color. Three approved lockups cover every context.</p>
+
+  <div class="grid g3">
+    <div class="panel"><div class="stage"><div class="logo" style="font-size:40px">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div><div class="cap">Primary logo</div><h4>APC.Science</h4><p>Digital, web, and general brand use. The default in nearly all contexts.</p></div>
+    <div class="panel"><div class="stage"><div class="logo" style="font-size:40px">APC&nbsp;<span class="sci">Science</span></div></div><div class="cap">Formal lockup</div><h4>APC Science</h4><p>Reports, presentations, and institutional materials, where the dot reads as punctuation. No dot.</p></div>
+    <div class="panel"><div class="stage"><div style="width:108px;height:108px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center"><div class="logo" style="font-size:27px;color:#fff">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg></div></div></div><div class="cap">Compact mark</div><h4>APC.</h4><p>Favicon, social avatars, app icons, and any space too small for the full wordmark.</p></div>
+  </div>
+</div></section>
+
+<!-- 03 CLEAR SPACE -->
+<section id="clearspace"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Construction &amp; clear space</h2></div>
+  <p class="sec-intro">Protect the wordmark with clear space equal to the cap-height of “APC” (marked <b>X</b>) on all sides. Never place type, imagery, or edges inside this zone. Minimum sizes keep the dot legible: <b>120px</b> wide for the primary logo on screen, <b>24px</b> for the compact mark.</p>
+  <div class="clearbox">
+    <svg class="csvg" viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+      <defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#E5E7EB" stroke-width="4"/></pattern></defs>
+      <rect x="60" y="40" width="440" height="150" fill="url(#hatch)" opacity=".6"/>
+      <rect x="120" y="80" width="320" height="70" fill="#fff"/>
+      <!-- logo as svg text -->
+      <text x="135" y="133" font-size="50" font-weight="800" fill="#0B1D2D" letter-spacing="-1.4">APC<tspan fill="#0F766E">.</tspan><tspan font-weight="300">Science</tspan></text>
+      <!-- X markers -->
+      <rect x="120" y="40" width="40" height="40" fill="none" stroke="#0F766E" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <text x="140" y="66" text-anchor="middle" font-size="16" font-weight="700" fill="#0F766E">X</text>
+      <rect x="80" y="80" width="40" height="40" fill="none" stroke="#0F766E" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <text x="100" y="106" text-anchor="middle" font-size="16" font-weight="700" fill="#0F766E">X</text>
+      <line x1="60" y1="40" x2="60" y2="190" stroke="#0F766E" stroke-width="1"/>
+      <line x1="500" y1="40" x2="500" y2="190" stroke="#0F766E" stroke-width="1"/>
+    </svg>
+  </div>
+</div></section>
+
+<!-- 04 MISUSE -->
+<section id="misuse"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Logo misuse</h2></div>
+  <p class="sec-intro">The wordmark is fixed. These are the violations that erode it fastest. When in doubt, use an approved lockup at full integrity.</p>
+  <div class="grid g3 dont">
+    <div class="misitem"><div class="stage"><div class="logo" style="font-size:30px;transform:scaleX(1.5)">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div><span class="flag no"><i>✕</i> Don't stretch or distort</span><p>Never scale the wordmark non-proportionally.</p></div>
+    <div class="misitem"><div class="stage"><div class="logo" style="font-size:30px">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9" fill="#b4322a"/></svg><span class="sci">Science</span></div></div><span class="flag no"><i>✕</i> Don't recolor the dot</span><p>The dot is always teal — never another hue.</p></div>
+    <div class="misitem"><div class="stage" style="background:linear-gradient(90deg,#888,#445)"><div class="logo rev" style="font-size:30px">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div><span class="flag no"><i>✕</i> Don't place on low contrast</span><p>Avoid busy or mid-tone backgrounds that swallow the mark.</p></div>
+    <div class="misitem"><div class="stage"><div class="logo" style="font-size:30px;font-weight:800">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci" style="font-weight:800">Science</span></div></div><span class="flag no"><i>✕</i> Don't equalize the weights</span><p>“Science” must stay light (300) against “APC”.</p></div>
+    <div class="misitem"><div class="stage"><div class="logo" style="font-size:30px;font-style:italic;letter-spacing:.1em">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div><span class="flag no"><i>✕</i> Don't restyle the type</span><p>No italics, tracking changes, or substitute fonts.</p></div>
+    <div class="misitem"><div class="stage"><div class="logo" style="font-size:30px;text-shadow:2px 3px 0 rgba(15,118,110,.4)">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></div></div><span class="flag no"><i>✕</i> Don't add effects</span><p>No shadows, glows, outlines, or bevels.</p></div>
+  </div>
+</div></section>
+
+<!-- 05 COLOR -->
+<section id="color"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Color</h2></div>
+  <p class="sec-intro">A disciplined, two-anchor palette: <b>Deep Navy</b> carries authority and nearly all type; <b>Teal</b> is the single accent — used sparingly, it earns attention. Slate, Lab Gray, and Off White do the quiet structural work. Restraint is the point.</p>
+  <div class="col4">
+    <div class="swatch"><div class="fill" style="background:#0B1D2D"></div><div class="info"><div class="nm">Deep Navy</div><div class="role">Primary type, headlines, the logo, dark surfaces</div><div class="val"><span>#0B1D2D</span><span>11 · 29 · 45</span></div></div></div>
+    <div class="swatch"><div class="fill" style="background:#0F766E"></div><div class="info"><div class="nm">Teal</div><div class="role">The accent: the dot, links, CTAs, highlights</div><div class="val"><span>#0F766E</span><span>15 · 118 · 110</span></div></div></div>
+    <div class="swatch"><div class="fill" style="background:#14B8A6"></div><div class="info"><div class="nm">Teal Light</div><div class="role">Accent on dark surfaces, subtle glows</div><div class="val"><span>#14B8A6</span><span>20 · 184 · 166</span></div></div></div>
+    <div class="swatch"><div class="fill" style="background:#5B6770"></div><div class="info"><div class="nm">Slate</div><div class="role">Secondary &amp; supporting body text</div><div class="val"><span>#5B6770</span><span>91 · 103 · 112</span></div></div></div>
+    <div class="swatch"><div class="fill" style="background:#E5E7EB"></div><div class="info"><div class="nm">Lab Gray</div><div class="role">Borders, dividers, neutral fills</div><div class="val"><span>#E5E7EB</span><span>229 · 231 · 235</span></div></div></div>
+    <div class="swatch"><div class="fill" style="background:#FAFAF8;box-shadow:inset 0 0 0 1px #E6E9EE"></div><div class="info"><div class="nm">Off White</div><div class="role">Primary page background</div><div class="val"><span>#FAFAF8</span><span>250 · 250 · 248</span></div></div></div>
+  </div>
+  <p style="margin-top:28px;font-size:.9rem"><b style="color:var(--navy)">Accessibility.</b> Navy on Off White and white on Navy both clear WCAG AA for body text. Reserve Teal for accents and large/bold elements; pair it with white or navy, not slate, for sufficient contrast.</p>
+</div></section>
+
+<!-- 06 TYPE -->
+<section id="type"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Typography</h2></div>
+  <p class="sec-intro"><b>Inter</b> is the single typeface across the brand — a humanist sans that is clean, authoritative, and highly legible at every size. (Suisse Int'l is the licensed equivalent if a distribution license is preferred.) One family, used with a clear hierarchy of weight and scale.</p>
+  <div class="grid g2">
+    <div>
+      <p class="muted-label">Scale</p>
+      <div class="typescale">
+        <div><span style="font-size:38px;font-weight:800;color:var(--navy);letter-spacing:-.03em">Display</span><span class="spec">800 · clamp 2.1–3.5rem</span></div>
+        <div><span style="font-size:30px;font-weight:700;color:var(--navy);letter-spacing:-.02em">Heading 2</span><span class="spec">700 · 1.7–2.3rem</span></div>
+        <div><span style="font-size:22px;font-weight:700;color:var(--navy)">Heading 3</span><span class="spec">700 · 1.15rem</span></div>
+        <div><span style="font-size:17px;font-weight:400;color:var(--slate)">Body copy — the workhorse.</span><span class="spec">400 · 1rem / 1.65</span></div>
+        <div><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)">Eyebrow label</span><span class="spec">700 · .74rem · caps</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="muted-label">Weights in use</p>
+      <div class="weights">
+        <div><div class="w" style="font-weight:300">Aa</div><div class="lab">300 Light · “Science”</div></div>
+        <div><div class="w" style="font-weight:400">Aa</div><div class="lab">400 Regular · body</div></div>
+        <div><div class="w" style="font-weight:600">Aa</div><div class="lab">600 Semibold · labels</div></div>
+        <div><div class="w" style="font-weight:700">Aa</div><div class="lab">700 Bold · headings</div></div>
+        <div><div class="w" style="font-weight:800">Aa</div><div class="lab">800 Extrabold · “APC”</div></div>
+      </div>
+      <p style="margin-top:30px;font-size:.92rem">Set headlines tight (-0.02em) and never lighter than 700. Body stays at 400 with generous 1.65 line-height. Eyebrows and labels use wide tracking and uppercase to signal structure without shouting.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 07 SYSTEM -->
+<section id="system"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Brand system elements</h2></div>
+  <p class="sec-intro">Three recurring graphic motifs extend the identity beyond the logo. Use them as quiet texture and section accents — never louder than the content, always in palette.</p>
+  <div class="grid g3">
+    <div class="panel">
+      <div class="sysart" id="ag-wrap"></div>
+      <div class="cap">Assay grid</div><h4>Precision &amp; data</h4><p>A dot matrix evoking high-throughput screening. For backgrounds, dividers, and report covers.</p>
+    </div>
+    <div class="panel">
+      <div class="sysart">
+        <svg width="200" height="100" viewBox="0 0 200 100" fill="none">
+          <polyline points="14,84 60,70 102,52 146,30" stroke="#0B1D2D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="146" y1="30" x2="188" y2="10" stroke="#5B6770" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+          <path d="M182 8 L190 8 L188 16" stroke="#5B6770" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14" cy="84" r="6.5" fill="#0F766E"/><circle cx="60" cy="70" r="6.5" fill="#0B1D2D"/>
+          <circle cx="102" cy="52" r="6.5" fill="#E5E7EB" stroke="#5B6770" stroke-width="1.4"/><circle cx="146" cy="30" r="6.5" fill="#0F766E"/>
+        </svg>
+      </div>
+      <div class="cap">Translational pathway</div><h4>Science to strategy</h4><p>An ascending node line — discovery to impact. For timelines, process, and section breaks.</p>
+    </div>
+    <div class="panel">
+      <div class="sysart" id="cc-wrap"></div>
+      <div class="cap">Cellular context</div><h4>Life-sciences foundation</h4><p>Overlapping cells with faint internal structure. For hero washes and large quiet fields.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 08 VOICE -->
+<section id="voice"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Voice &amp; tone</h2></div>
+  <p class="sec-intro">APC Science sounds like a senior operator who has actually built and run the thing — plain-spoken, precise, and candid. We earn trust with specificity, not adjectives. We never oversell, and we are comfortable saying what won't work.</p>
+  <div class="voice">
+    <div class="vrow"><h4>Candid, not salesy</h4><p>State the real situation and the real path. Confidence comes from precision, not hype.</p>
+      <div class="vsays"><div class="we"><div class="h">We say</div><p>“Tell us what's in the way. We'll tell you, candidly, how we can help.”</p></div><div class="not"><div class="h">Not</div><p>“Our revolutionary platform unlocks limitless potential.”</p></div></div></div>
+    <div class="vrow"><h4>Operator, not advisor</h4><p>Speak from having run platforms, GMP/GLP programs, and IND-enabling work — not from the sidelines.</p>
+      <div class="vsays"><div class="we"><div class="h">We say</div><p>“Built on experience scaling research platforms and delivering thousands of projects.”</p></div><div class="not"><div class="h">Not</div><p>“Industry-leading thought leadership and best practices.”</p></div></div></div>
+    <div class="vrow"><h4>Precise &amp; scientific</h4><p>Use accurate terminology and concrete nouns. Name the modality, the stage, the constraint.</p>
+      <div class="vsays"><div class="we"><div class="h">We say</div><p>“Peptides, conjugates, ligands, scaffolds, and non-standard chemistries.”</p></div><div class="not"><div class="h">Not</div><p>“Cutting-edge molecules and next-gen solutions.”</p></div></div></div>
+    <div class="vrow"><h4>Comfortable with the hard</h4><p>Lean into difficulty. The unusual projects are the proof point, not a disclaimer.</p>
+      <div class="vsays"><div class="we"><div class="h">We say</div><p>“The projects others find too hard are where we do our best work.”</p></div><div class="not"><div class="h">Not</div><p>“We handle simple, standard requests quickly.”</p></div></div></div>
+  </div>
+</div></section>
+
+<!-- 09 MESSAGING -->
+<section id="messaging"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">09</span><h2>Messaging</h2></div>
+  <p class="sec-intro">The core language of the brand. Use the tagline as the standing signature; the positioning line as the lead; the boilerplate verbatim in profiles, footers, and decks.</p>
+  <div class="msg">
+    <div class="tagbig">The <em>strategy</em> and the <em>science</em> behind better therapeutics.</div>
+    <div class="lab">Tagline</div>
+    <p>Scientific Strategy. Technical Depth. Translational Impact.</p>
+    <div class="lab">Boilerplate</div>
+    <p class="boiler">APC Science is a specialist consultancy for drug developers. We shape development strategy, planning, and operations across every modality and stage, and we go hands-on with the chemistry and technical development of peptide, antibody, and conjugate therapeutics.</p>
+    <div class="lab">In one line</div>
+    <p>Development strategy and bench-level chemistry, from one senior partner.</p>
+  </div>
+</div></section>
+
+<!-- 10 APPLICATIONS -->
+<section id="applications"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Applications</h2></div>
+  <p class="sec-intro">The system in the wild. Consistent margins, restrained accent, and the wordmark held at integrity across every surface.</p>
+
+  <div class="grid g2">
+    <div>
+      <div class="app"><svg viewBox="0 0 360 210" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect width="360" height="210" fill="#FFFFFF"/><rect width="360" height="7" fill="#0F766E"/>
+        <text x="30" y="70" font-size="28" font-weight="800" fill="#0B1D2D" letter-spacing="-.6">APC<tspan fill="#0F766E">.</tspan><tspan font-weight="300">Science</tspan></text>
+        <text x="30" y="158" font-size="10" font-weight="600" fill="#5B6770">Scientific Strategy.</text>
+        <text x="30" y="173" font-size="10" font-weight="600" fill="#5B6770">Technical Depth. Translational Impact.</text>
+        <text x="330" y="158" text-anchor="end" font-size="10" font-weight="700" fill="#0B1D2D">Amrit Chaudhuri · Founder</text>
+        <text x="330" y="173" text-anchor="end" font-size="10" fill="#0F766E">amrit@apc.science</text>
+        <text x="330" y="188" text-anchor="end" font-size="10" fill="#5B6770">www.apc.science · Boston, MA</text>
+      </svg></div>
+      <div class="appcap">Business card</div>
+    </div>
+    <div>
+      <div class="app"><svg viewBox="0 0 360 210" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect width="360" height="210" fill="#0B1D2D"/>
+        <g id="rep-dots"></g>
+        <text x="30" y="74" font-size="22" font-weight="700" fill="#ffffff">Translational</text>
+        <text x="30" y="100" font-size="22" font-weight="700" fill="#ffffff">Strategy Report</text>
+        <text x="30" y="124" font-size="11" font-style="italic" fill="#14B8A6">Evidence. Insight. Impact.</text>
+        <text x="30" y="186" font-size="18" font-weight="800" fill="#ffffff">APC<tspan fill="#14B8A6">.</tspan><tspan font-weight="300">Science</tspan></text>
+      </svg></div>
+      <div class="appcap">Report / deck cover</div>
+    </div>
+    <div>
+      <div class="app"><svg viewBox="0 0 360 210" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <rect width="360" height="210" fill="#FAFAF8"/>
+        <text x="30" y="50" font-size="20" font-weight="800" fill="#0B1D2D">APC<tspan fill="#0F766E">.</tspan><tspan font-weight="300">Science</tspan></text>
+        <line x1="30" y1="66" x2="330" y2="66" stroke="#E5E7EB" stroke-width="1"/>
+        <rect x="30" y="86" width="190" height="7" rx="3.5" fill="#E5E7EB"/>
+        <rect x="30" y="104" width="250" height="7" rx="3.5" fill="#E5E7EB"/>
+        <rect x="30" y="122" width="160" height="7" rx="3.5" fill="#E5E7EB"/>
+        <rect x="30" y="150" width="120" height="7" rx="3.5" fill="#0F766E" opacity=".5"/>
+        <text x="30" y="194" font-size="8.5" fill="#5B6770">APC Science LLC · Boston, Massachusetts · amrit@apc.science</text>
+      </svg></div>
+      <div class="appcap">Letterhead</div>
+    </div>
+    <div>
+      <div class="app"><svg viewBox="0 0 360 210" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient></defs>
+        <rect width="360" height="210" fill="#2b3138"/><rect width="360" height="210" fill="url(#sg)"/>
+        <text x="180" y="116" text-anchor="middle" font-size="30" font-weight="800" fill="#dde2e6" letter-spacing="-1">APC<tspan fill="#2dd4bf">.</tspan><tspan font-weight="300">Science</tspan></text>
+      </svg></div>
+      <div class="appcap">Signage / office wall</div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span class="logo">APC<svg class="dot" viewBox="0 0 20 72"><circle cx="10" cy="62" r="9"/></svg><span class="sci">Science</span></span>
+  <p>Official brand guidelines · Meridian identity · © <span id="yr">2026</span> APC Science LLC · Boston, Massachusetts</p>
+</div></footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  // assay grid
+  (function(){
+    let out='',cols=13,rows=8,gap=13,r=2.6,ox=4,oy=5;
+    for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
+      let cx=ox+x*gap,cy=oy+y*gap,f='#E5E7EB';
+      if(x-y===2)f='#0F766E';else if(x-y===3)f='#0B1D2D';else if((x+y)%9===0)f='#5B6770';
+      out+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${f}"/>`;
+    }
+    document.getElementById('ag-wrap').innerHTML=`<svg width="170" height="108" viewBox="0 0 170 108">${out}</svg>`;
+  })();
+  // cellular context
+  (function(){
+    const cells=[[58,52,32],[104,44,27],[132,62,23]];let b='',rings='';
+    const op=[.5,.45,.4],cols=['#0F766E','#5B6770','#0F766E'];
+    cells.forEach((c,i)=>{rings+=`<circle cx="${c[0]}" cy="${c[1]}" r="${c[2]}" fill="none" stroke="${cols[i]}" stroke-width="1.3" opacity="${op[i]}"/>`;});
+    cells.forEach(c=>{for(let i=0;i<26;i++){const a=Math.random()*6.28,d=Math.random()*c[2]*.5;const x=c[0]+Math.cos(a)*d,y=c[1]+Math.sin(a)*d;b+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(Math.random()*1+.4).toFixed(1)}" fill="#0F766E" opacity="${(Math.random()*.3+.15).toFixed(2)}"/>`;}});
+    document.getElementById('cc-wrap').innerHTML=`<svg width="190" height="108" viewBox="0 0 190 108">${b}${rings}</svg>`;
+  })();
+  // report dots
+  (function(){
+    let out='';for(let y=0;y<7;y++)for(let x=0;x<8;x++){const cx=232+x*15,cy=44+y*15,teal=(x+y)%5===0;out+=`<circle cx="${cx}" cy="${cy}" r="2.4" fill="${teal?'#14b8a6':'#1d3344'}"/>`;}
+    document.getElementById('rep-dots').innerHTML=out;
+  })();
+</script>
+</body>
+</html>
