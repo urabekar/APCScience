@@ -75,7 +75,12 @@
 <section>
   <div class="wrap">
     <div class="contact-grid">
-      <form class="contact-form" action="#" method="POST" novalidate>
+      <form class="contact-form" action="https://formsubmit.co/amrit@apc.science" method="POST">
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_subject" value="New inquiry from apc.science">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Thank you for reaching out to APC Science. We've received your message and will be in touch shortly. — APC Science">
+        <input type="hidden" name="_next" value="https://www.apc.science/thanks.html">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Your name" required>
@@ -139,11 +144,10 @@
           <label for="message">How can we help?</label>
           <textarea id="message" name="message" placeholder="A sentence or two about the program and what is in the way." required></textarea>
         </div>
-        <!-- honeypot -->
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-        <button type="submit" class="btn btn-teal">Compose email</button>
-        <p class="note" style="margin-top:14px">This opens an email to <a href="mailto:amrit@apc.science">amrit@apc.science</a> with your details filled in. Every inquiry is read and answered directly.</p>
-        <p class="form-ok" role="status">Opening your email app with the details prefilled. If nothing opens, write to <a href="mailto:amrit@apc.science">amrit@apc.science</a> directly.</p>
+        <!-- FormSubmit honeypot (spam trap) -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <button type="submit" class="btn btn-teal">Send message</button>
+        <p class="note" style="margin-top:14px">Your message goes straight to APC Science, and you'll receive a confirmation by email. Every inquiry is read and answered directly.</p>
       </form>
 
       <aside class="contact-aside">

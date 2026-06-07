@@ -764,7 +764,12 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible, 
 <section>
   <div class="wrap">
     <div class="contact-grid">
-      <form class="contact-form" action="#" method="POST" novalidate>
+      <form class="contact-form" action="#" data-formsubmit="preview" method="POST">
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_subject" value="New inquiry from apc.science">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Thank you for reaching out to APC Science. We've received your message and will be in touch shortly. — APC Science">
+        <input type="hidden" name="_next" value="https://www.apc.science/thanks.html">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Your name" required>
@@ -828,11 +833,10 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible, 
           <label for="message">How can we help?</label>
           <textarea id="message" name="message" placeholder="A sentence or two about the program and what is in the way." required></textarea>
         </div>
-        <!-- honeypot -->
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-        <button type="submit" class="btn btn-teal">Compose email</button>
-        <p class="note" style="margin-top:14px">This opens an email to <a href="mailto:amrit@apc.science">amrit@apc.science</a> with your details filled in. Every inquiry is read and answered directly.</p>
-        <p class="form-ok" role="status">Opening your email app with the details prefilled. If nothing opens, write to <a href="mailto:amrit@apc.science">amrit@apc.science</a> directly.</p>
+        <!-- FormSubmit honeypot (spam trap) -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <button type="submit" class="btn btn-teal">Send message</button>
+        <p class="note" style="margin-top:14px">Your message goes straight to APC Science, and you'll receive a confirmation by email. Every inquiry is read and answered directly.</p>
       </form>
 
       <aside class="contact-aside">
@@ -878,7 +882,13 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible, 
 function show(name){pages.forEach(function(p){p.hidden=(p.id!=='page-'+name);});document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-page')===name&&!a.classList.contains('btn'));});if(navWrap)navWrap.classList.remove('open');if(toggle)toggle.setAttribute('aria-expanded','false');window.scrollTo({top:0});}
 links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show(a.getAttribute('data-page'));});});
 if(toggle&&navWrap){toggle.addEventListener('click',function(){var o=navWrap.classList.toggle('open');toggle.setAttribute('aria-expanded',o?'true':'false');});}
-var form=document.querySelector('.contact-form');if(form){form.addEventListener('submit',function(ev){ev.preventDefault();if(form.querySelector('[name="_gotcha"]')&&form.querySelector('[name="_gotcha"]').value)return;if(!form.checkValidity()){form.reportValidity();return;}function val(n){var el=form.querySelector('[name="'+n+'"]');return el?el.value.trim():'';}var name=val('name');var body=['Name: '+name,'Email: '+val('email'),'Company / institution: '+val('company'),'Role: '+val('role'),'Program stage: '+val('stage'),'Modality: '+val('modality'),'Topic: '+val('topic'),'',val('message')].join('\n');window.location.href='mailto:amrit@apc.science?subject='+encodeURIComponent('APC Science inquiry'+(name?' — '+name:''))+'&body='+encodeURIComponent(body);var ok=form.querySelector('.form-ok');if(ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});}});}
+var form=document.querySelector('.contact-form');
+if(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+  if(!form.checkValidity()){form.reportValidity();return;}
+  var n=form.querySelector('.preview-note');
+  if(!n){n=document.createElement('p');n.className='note preview-note';n.style.marginTop='14px';n.style.color='#0F766E';n.style.fontWeight='600';form.appendChild(n);}
+  n.textContent='Preview only — on the live site this sends your message to APC Science and emails you a confirmation.';
+  n.scrollIntoView({behavior:'smooth',block:'center'});});}
 document.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear();});})();
 </script>
 </body>

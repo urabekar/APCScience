@@ -18,33 +18,8 @@
     });
   }
 
-  // Contact form -> composes a real email via the visitor's mail client (mailto).
-  var form = document.querySelector(".contact-form");
-  if (form) {
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      if (form.querySelector('[name="_gotcha"]') && form.querySelector('[name="_gotcha"]').value) return;
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      function val(n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ""; }
-      var name = val("name");
-      var body = [
-        "Name: " + name,
-        "Email: " + val("email"),
-        "Company / institution: " + val("company"),
-        "Role: " + val("role"),
-        "Program stage: " + val("stage"),
-        "Modality: " + val("modality"),
-        "Topic: " + val("topic"),
-        "",
-        val("message")
-      ].join("\n");
-      var subject = "APC Science inquiry" + (name ? " — " + name : "");
-      window.location.href = "mailto:amrit@apc.science?subject=" +
-        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      var ok = form.querySelector(".form-ok");
-      if (ok) { ok.classList.add("show"); ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
-    });
-  }
+  // Contact form posts natively to FormSubmit (https://formsubmit.co) — no JS interception,
+  // so the auto-reply (which needs reCAPTCHA + a normal POST) works correctly.
 
   // Footer year
   document.querySelectorAll("[data-year]").forEach(function (el) {
