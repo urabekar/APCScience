@@ -220,6 +220,32 @@ ul.check li:before { content: ""; position: absolute; left: 2px; top: 15px; widt
 .founder-meta li:first-child { border-top: 0; }
 .founder-meta b { color: var(--navy); font-weight: 700; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; }
 
+/* ---------- Founder: photo-forward hero ---------- */
+.founder-head { padding-bottom: 50px; }
+.founder-head__grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 52px; align-items: center; margin-top: 6px; }
+.founder-head__text .lead { max-width: 52ch; margin-top: 16px; }
+.founder-head__media { margin: 0; }
+.founder-head__media img { width: 100%; aspect-ratio: 4 / 5; max-height: 440px; object-fit: cover; object-position: center 16%; border-radius: 18px; box-shadow: var(--shadow-lg); background: var(--bg-softer); display: block; }
+@media (max-width: 860px) {
+  .founder-head__grid { grid-template-columns: 1fr; gap: 26px; }
+  .founder-head__media { order: -1; }
+  .founder-head__media img { max-width: 280px; max-height: 340px; }
+}
+
+/* Facts strip: a hairline spec card straddling hero and story */
+.fact-strip { padding: 0; }
+.fact-strip .wrap { transform: translateY(-32px); margin-bottom: -16px; }
+.fact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); list-style: none; padding: 0; margin: 0; }
+.fact-grid li { background: var(--white); padding: 20px 24px; }
+.fact-grid b { display: block; color: var(--navy); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+.fact-grid span, .fact-grid a { color: var(--slate); font-size: .96rem; }
+.fact-grid a:hover { color: var(--teal); }
+@media (max-width: 720px) { .fact-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .fact-grid { grid-template-columns: 1fr; } }
+
+/* Story: centered editorial column (shares the centre axis with the lab band + CTA below) */
+.founder-story { max-width: 760px; margin-left: auto; margin-right: auto; }
+
 .prose p { color: var(--slate); }
 .prose p.first { font-size: 1.16rem; color: var(--ink); }
 .pull { margin: 30px 0; padding: 6px 0 6px 26px; border-left: 3px solid var(--teal); font-size: 1.35rem; line-height: 1.4; color: var(--navy); font-weight: 600; letter-spacing: -.01em; }
