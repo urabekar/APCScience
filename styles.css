@@ -1,4 +1,4 @@
-/* APC Science — shared stylesheet
+/* APC Science - shared stylesheet
    Clean scientific / modern theme. Built fresh.
    Design tokens first, components after. */
 
@@ -318,7 +318,7 @@ ul.check li:before { content: ""; position: absolute; left: 2px; top: 15px; widt
 .skip-link:focus { left: 0; color: #fff; }
 a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, .nav-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 4px; }
 
-/* ---------- Media band (photography) — natural aspect, no crop ---------- */
+/* ---------- Media band (photography), natural aspect, no crop ---------- */
 .media-band { max-width: 960px; margin: 0 auto; }
 .media-band img { width: 100%; height: auto; border-radius: 18px; box-shadow: var(--shadow); display: block; }
 .media-cap { margin-top: 12px; font-size: .82rem; color: var(--slate); text-align: center; }

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selected experience, Amrit Chaudhuri | APC Science</title>
+<meta name="description" content="Organizations Amrit Chaudhuri worked with as an external partner, contributor, and resource from 2007 to 2024 across pharma, biotech, academic research, and service partners: 208 organizations across 10+ countries.">
+<meta property="og:title" content="Selected experience, Amrit Chaudhuri | APC Science">
+<meta property="og:description" content="208 organizations across pharma, biotech, academia, and service partners, 2007 to 2024. The breadth behind the judgment APC Science brings to a program.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.apc.science/experience.html">
+<meta property="og:site_name" content="APC Science">
+<link rel="canonical" href="https://www.apc.science/experience.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ---- Experience page (Meridian brand, uses tokens from styles.css) ---- */
+  .exp-numbers { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .exp-numbers .grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .exp-numbers .cell { padding: 34px 24px; border-right: 1px solid var(--line); }
+  .exp-numbers .cell:last-child { border-right: 0; }
+  .exp-numbers .n { font-weight: 800; font-size: clamp(2.4rem, 5vw, 3.2rem); line-height: 1; letter-spacing: -.03em; color: var(--navy); }
+  .exp-numbers .n .pct { color: var(--teal); }
+  .exp-numbers .lab { margin-top: 10px; font-size: .92rem; color: var(--slate); }
+  .exp-numbers .cell.clickable { cursor: pointer; transition: background .15s ease; }
+  .exp-numbers .cell.clickable:hover { background: var(--bg-soft); }
+  .exp-numbers .cell.clickable:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+  .exp-numbers .cell .hint { display: block; margin-top: 8px; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); opacity: 0; transition: opacity .15s ease; }
+  .exp-numbers .cell.clickable:hover .hint, .exp-numbers .cell.clickable:focus-visible .hint { opacity: 1; }
+  @media (max-width: 760px) { .exp-numbers .grid { grid-template-columns: repeat(2, 1fr); } .exp-numbers .cell:nth-child(2) { border-right: 0; } .exp-numbers .cell:nth-child(1), .exp-numbers .cell:nth-child(2) { border-bottom: 1px solid var(--line); } }
+
+  .marquee-sec { padding: 54px 0 6px; }
+  .marquee-sec .kicker { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); text-align: center; margin-bottom: 26px; }
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .track { display: flex; width: max-content; animation: exp-scroll 60s linear infinite; }
+  .marquee:hover .track { animation-play-state: paused; }
+  @keyframes exp-scroll { to { transform: translateX(-50%); } }
+  .chip { font-weight: 600; font-size: 1.15rem; color: var(--navy); padding: 0 30px; white-space: nowrap; border-right: 1px solid var(--line); display: flex; align-items: center; height: 40px; }
+  @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+
+  .dir-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 30px 0 6px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter { font-family: inherit; font-weight: 600; font-size: .9rem; border: 1px solid var(--line); background: var(--white); color: var(--slate); padding: 9px 16px; border-radius: 999px; cursor: pointer; transition: border-color .18s ease, color .18s ease, background .18s ease; }
+  .filter:hover { border-color: var(--teal); color: var(--navy); }
+  .filter[aria-pressed="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .filter .c { opacity: .6; margin-left: 6px; font-variant-numeric: tabular-nums; }
+  .filter[aria-pressed="true"] .c { opacity: .8; }
+  .search { margin-left: auto; position: relative; }
+  .search input { font-family: inherit; font-size: .9rem; padding: 10px 14px 10px 36px; border: 1px solid var(--line); border-radius: 999px; width: 240px; outline: none; background: var(--bg-soft); color: var(--ink); }
+  .search input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,148,136,.14); }
+  .search svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); opacity: .45; color: var(--slate); }
+  @media (max-width: 560px) { .search { margin-left: 0; width: 100%; } .search input { width: 100%; } }
+
+  .count-line { font-size: .84rem; color: var(--slate); margin: 18px 0 22px; }
+  .count-line b { color: var(--navy); font-weight: 700; }
+  .group { margin-top: 10px; }
+  .group h3 { font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); padding-bottom: 12px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; margin: 0; }
+  .group h3 .gc { color: var(--slate); font-weight: 600; letter-spacing: .02em; }
+  ul.orgs { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; margin: 4px 0 40px; padding: 0; }
+  @media (max-width: 820px) { ul.orgs { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { ul.orgs { grid-template-columns: 1fr; } }
+  ul.orgs li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 11px 2px; border-bottom: 1px solid var(--line); font-size: .96rem; color: var(--ink); }
+  ul.orgs li .loc { font-size: .78rem; color: var(--slate); white-space: nowrap; }
+  .empty { display: none; color: var(--slate); padding: 40px 0; }
+
+  .exp-note { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .exp-note p { font-size: .95rem; color: var(--slate); max-width: 74ch; margin: 0; }
+  .exp-note .label { color: var(--navy); font-weight: 700; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="APC Science home">
+      <span class="logo">APC<svg class="dot" viewBox="0 0 20 72" aria-hidden="true"><circle cx="10" cy="62" r="9"></circle></svg><span class="sci">Science</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="founder.html">Founder</a>
+      <a href="experience.html" class="active">Experience</a>
+      <a href="contact.html" class="btn btn-teal">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HEAD -->
+<section class="page-head" id="main" style="padding-bottom:40px">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span>Experience</span></nav>
+    <span class="eyebrow">Amrit Chaudhuri · Selected experience</span>
+    <h1>Seventeen years across the life-sciences landscape</h1>
+    <p class="lead" style="max-width:820px">From 2007 to 2024, Amrit worked as an external partner, contributor, and resource to the organizations below: leading pharmaceutical companies, emerging biotechs, the academic and research institutions that seed them, and the service and supply partners that equip them. Working across all of them, rather than inside any one, is what shaped how he reads the industry and the judgment he brings to a program.</p>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="exp-numbers">
+  <div class="wrap">
+    <div class="grid">
+      <div class="cell clickable" data-cat="Pharma" role="button" tabindex="0" aria-label="Show the 22 pharmaceutical companies"><div class="n">22</div><div class="lab">Leading pharmaceutical companies</div><span class="hint">View →</span></div>
+      <div class="cell clickable" data-cat="Biotech" role="button" tabindex="0" aria-label="Show the 77 biotechs"><div class="n">77</div><div class="lab">Biotechs, from seed to clinical</div><span class="hint">View →</span></div>
+      <div class="cell clickable" data-cat="Academic" role="button" tabindex="0" aria-label="Show the 99 academic and research institutions"><div class="n">99</div><div class="lab">Academic &amp; research institutions</div><span class="hint">View →</span></div>
+      <div class="cell"><div class="n">10<span class="pct">+</span></div><div class="lab">Countries across three continents</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<section class="marquee-sec">
+  <div class="wrap"><div class="kicker">A few of the names</div></div>
+  <div class="marquee"><div class="track" id="track"></div></div>
+</section>
+
+<!-- DIRECTORY -->
+<section style="padding:40px 0 90px">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:8px">
+      <span class="eyebrow">The full list</span>
+      <h2>Every organization, grouped by type</h2>
+      <p class="lead" style="font-size:1rem">Filter or search to find a name.</p>
+    </div>
+
+    <div class="dir-controls">
+      <div class="filters" id="filters">
+        <button class="filter" data-cat="all" aria-pressed="true">All <span class="c"></span></button>
+        <button class="filter" data-cat="Pharma" aria-pressed="false">Pharma <span class="c"></span></button>
+        <button class="filter" data-cat="Biotech" aria-pressed="false">Biotech <span class="c"></span></button>
+        <button class="filter" data-cat="Academic" aria-pressed="false">Academic &amp; Research <span class="c"></span></button>
+        <button class="filter" data-cat="Service" aria-pressed="false">Service Partners <span class="c"></span></button>
+      </div>
+      <div class="search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="q" type="search" placeholder="Search organizations…" autocomplete="off" aria-label="Search organizations">
+      </div>
+    </div>
+
+    <div class="count-line" id="countLine"></div>
+    <div id="results"></div>
+    <div class="empty" id="empty">No organizations match that search.</div>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section class="exp-note">
+  <div class="wrap" style="padding-top:44px;padding-bottom:44px">
+    <p><span class="label">A note on this list.</span> These are organizations Amrit worked with personally, as an external partner, contributor, and resource, through his work at Advanced Peptides and SmartLabs between 2007 and 2024. Inclusion reflects past project experience and is not a claim of current partnership or endorsement.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="wrap cta-band">
+    <span class="eyebrow">Let's get into it</span>
+    <h2>Put that breadth to work on your program</h2>
+    <p class="lead" style="max-width:620px;margin:0 auto 8px">Wherever your program sits, the right read usually comes from having seen the whole landscape.</p>
+    <a href="contact.html" class="btn btn-teal">Talk through your program</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><span class="logo rev">APC<svg class="dot" viewBox="0 0 20 72" aria-hidden="true"><circle cx="10" cy="62" r="9"></circle></svg><span class="sci">Science</span></span></div>
+        <p>APC Science is a specialist consultancy for drug developers. We shape development strategy, planning, and operations across every modality and stage, and we go hands-on with the chemistry and technical development of peptide, antibody, and conjugate therapeutics.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="founder.html">Founder</a>
+        <a href="experience.html">Experience</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:amrit@apc.science">amrit@apc.science</a>
+        <a href="https://www.linkedin.com/in/amrit-chaudhuri/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> APC Science LLC. All rights reserved.</span>
+      <span><a href="privacy.html">Privacy</a> · Boston, Massachusetts</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- data: organizations Amrit worked with, 2007–2024 ---- */
+const ORGS = [
+  // Pharma (22)
+  {n:"AbbVie",c:"Pharma"},{n:"Amgen",c:"Pharma"},{n:"Astellas",c:"Pharma"},
+  {n:"AstraZeneca",c:"Pharma"},{n:"Bayer",c:"Pharma"},{n:"Biogen",c:"Pharma"},
+  {n:"Bristol Myers Squibb",c:"Pharma"},{n:"Eli Lilly",c:"Pharma"},{n:"EMD Serono",c:"Pharma"},
+  {n:"GSK",c:"Pharma"},{n:"Hengrui",c:"Pharma"},{n:"Johnson & Johnson",c:"Pharma"},
+  {n:"Merck & Co.",c:"Pharma"},{n:"Mitsubishi Tanabe Pharma",c:"Pharma"},{n:"Moderna",c:"Pharma"},
+  {n:"Novo Nordisk",c:"Pharma"},{n:"Pfizer",c:"Pharma"},{n:"Roche",c:"Pharma"},{n:"Sanofi",c:"Pharma"},
+  {n:"Simcere",c:"Pharma"},{n:"Takeda",c:"Pharma"},{n:"Vertex",c:"Pharma"},
+  // Biotech (77)
+  {n:"CRISPR Therapeutics",c:"Biotech"},{n:"Editas Medicine",c:"Biotech"},{n:"Beam Therapeutics",c:"Biotech"},
+  {n:"Prime Medicine",c:"Biotech"},{n:"EdiGene",c:"Biotech"},{n:"BlueRock Therapeutics",c:"Biotech"},
+  {n:"Sana Biotechnology",c:"Biotech"},{n:"Scorpion Therapeutics",c:"Biotech"},{n:"Odyssey Therapeutics",c:"Biotech"},
+  {n:"Sherlock Biosciences",c:"Biotech"},{n:"Clade Therapeutics",c:"Biotech"},{n:"Sensei Biotherapeutics",c:"Biotech"},
+  {n:"Solid Biosciences",c:"Biotech"},{n:"TCR2 Therapeutics",c:"Biotech"},{n:"Gritstone bio",c:"Biotech"},
+  {n:"Cue Biopharma",c:"Biotech"},{n:"Entrada Therapeutics",c:"Biotech"},{n:"Xsphera Biosciences",c:"Biotech"},
+  {n:"Verge Genomics",c:"Biotech"},{n:"Parvus Therapeutics",c:"Biotech"},{n:"Jnana Therapeutics",c:"Biotech"},
+  {n:"Kronos Bio",c:"Biotech"},{n:"Kintai Therapeutics",c:"Biotech"},{n:"Kernal Biologics",c:"Biotech"},
+  {n:"Oncorus",c:"Biotech"},{n:"Yumanity Therapeutics",c:"Biotech"},{n:"Finch Therapeutics",c:"Biotech"},
+  {n:"Cyclerion Therapeutics",c:"Biotech"},{n:"Day Zero Diagnostics",c:"Biotech"},{n:"Monte Rosa Therapeutics",c:"Biotech"},
+  {n:"Seres Therapeutics",c:"Biotech"},{n:"ORNA Therapeutics",c:"Biotech"},{n:"NextRNA Therapeutics",c:"Biotech"},
+  {n:"Guardian Therapeutics",c:"Biotech"},{n:"Atalanta Therapeutics",c:"Biotech"},{n:"Ascidian Therapeutics",c:"Biotech"},
+  {n:"Alloplex Biotherapeutics",c:"Biotech"},{n:"HelixNano",c:"Biotech"},{n:"ACTnano",c:"Biotech"},
+  {n:"Inkbit",c:"Biotech"},{n:"Igenomix",c:"Biotech"},{n:"Radius Health",c:"Biotech"},
+  {n:"C4 Therapeutics",c:"Biotech"},{n:"Cellaria",c:"Biotech"},{n:"CELLINK",c:"Biotech"},
+  {n:"Imagen Biopharma",c:"Biotech"},{n:"WaveGuide",c:"Biotech"},{n:"Intergalactic",c:"Biotech"},
+  {n:"Alector",c:"Biotech"},{n:"ArsenalBio",c:"Biotech"},{n:"Senti Biosciences",c:"Biotech"},
+  {n:"Mammoth Biosciences",c:"Biotech"},{n:"Vor Biopharma",c:"Biotech"},{n:"Obsidian Therapeutics",c:"Biotech"},
+  {n:"Affinivax",c:"Biotech"},{n:"Ginkgo Bioworks",c:"Biotech"},{n:"Korro Bio",c:"Biotech"},
+  {n:"Tango Therapeutics",c:"Biotech"},{n:"Arrakis Therapeutics",c:"Biotech"},{n:"Tessera Therapeutics",c:"Biotech"},
+  {n:"Generation Bio",c:"Biotech"},{n:"Be Biopharma",c:"Biotech"},{n:"Verve Therapeutics",c:"Biotech"},
+  {n:"Aktis Oncology",c:"Biotech"},{n:"Mariana Oncology",c:"Biotech"},{n:"Compass Therapeutics",c:"Biotech"},
+  {n:"Pandion Therapeutics",c:"Biotech"},{n:"Montai Therapeutics",c:"Biotech"},{n:"Cellarity",c:"Biotech"},
+  {n:"Generate Biomedicines",c:"Biotech"},{n:"Allogene Therapeutics",c:"Biotech"},{n:"Graphite Bio",c:"Biotech"},
+  {n:"Nkarta Therapeutics",c:"Biotech"},{n:"Metagenomi",c:"Biotech"},{n:"Zymergen",c:"Biotech"},
+  {n:"Eikon Therapeutics",c:"Biotech"},{n:"Noetik",c:"Biotech"},
+  // Service Partners (10)
+  {n:"Charles River Laboratories",c:"Service"},{n:"Thermo Fisher",c:"Service"},{n:"Sartorius",c:"Service"},
+  {n:"Nikon Instruments",c:"Service"},{n:"VWR",c:"Service"},{n:"Millipore (MilliporeSigma)",c:"Service"},
+  {n:"EMD Chemicals",c:"Service"},{n:"New England Biolabs",c:"Service"},{n:"AmbioPharm",c:"Service"},
+  {n:"GL Biochem",c:"Service"},
+  // Academic / Research (99)
+  {n:"University of Oxford",c:"Academic",l:"UK"},{n:"University of Cambridge",c:"Academic",l:"UK"},
+  {n:"University College London (UCL)",c:"Academic",l:"UK"},{n:"Francis Crick Institute",c:"Academic",l:"UK"},
+  {n:"MRC Laboratory of Molecular Biology",c:"Academic",l:"UK"},{n:"Heidelberg University",c:"Academic",l:"Germany"},
+  {n:"University of Zurich",c:"Academic",l:"Switzerland"},{n:"Institut Pasteur",c:"Academic",l:"France"},
+  {n:"University of Barcelona",c:"Academic",l:"Spain"},{n:"McGill University",c:"Academic",l:"Canada"},
+  {n:"A*STAR",c:"Academic",l:"Singapore"},{n:"Harvard University",c:"Academic",l:"MA, US"},
+  {n:"Massachusetts Institute of Technology (MIT)",c:"Academic",l:"MA, US"},{n:"Stanford University",c:"Academic",l:"CA, US"},
+  {n:"Johns Hopkins University",c:"Academic",l:"MD, US"},{n:"University of California, San Francisco (UCSF)",c:"Academic",l:"CA, US"},
+  {n:"University of California, Berkeley",c:"Academic",l:"CA, US"},{n:"University of California, Los Angeles (UCLA)",c:"Academic",l:"CA, US"},
+  {n:"University of California, San Diego (UCSD)",c:"Academic",l:"CA, US"},{n:"Yale University",c:"Academic",l:"CT, US"},
+  {n:"Columbia University",c:"Academic",l:"NY, US"},{n:"University of Pennsylvania",c:"Academic",l:"PA, US"},
+  {n:"Princeton University",c:"Academic",l:"NJ, US"},{n:"Cornell University",c:"Academic",l:"NY, US"},
+  {n:"University of Chicago",c:"Academic",l:"IL, US"},{n:"Northwestern University",c:"Academic",l:"IL, US"},
+  {n:"Washington University in St. Louis",c:"Academic",l:"MO, US"},{n:"University of Michigan",c:"Academic",l:"MI, US"},
+  {n:"University of Minnesota",c:"Academic",l:"MN, US"},{n:"UT Southwestern Medical Center",c:"Academic",l:"TX, US"},
+  {n:"UT MD Anderson Cancer Center",c:"Academic",l:"TX, US"},{n:"Rice University",c:"Academic",l:"TX, US"},
+  {n:"University of North Carolina at Chapel Hill",c:"Academic",l:"NC, US"},{n:"University of Florida",c:"Academic",l:"FL, US"},
+  {n:"Florida State University",c:"Academic",l:"FL, US"},{n:"Emory University",c:"Academic",l:"GA, US"},
+  {n:"Georgia Institute of Technology",c:"Academic",l:"GA, US"},{n:"University of Georgia",c:"Academic",l:"GA, US"},
+  {n:"Vanderbilt University",c:"Academic",l:"TN, US"},{n:"Pennsylvania State University",c:"Academic",l:"PA, US"},
+  {n:"University of Maryland, Baltimore",c:"Academic",l:"MD, US"},{n:"University of Virginia",c:"Academic",l:"VA, US"},
+  {n:"Virginia Tech",c:"Academic",l:"VA, US"},{n:"Case Western Reserve University",c:"Academic",l:"OH, US"},
+  {n:"University of Cincinnati",c:"Academic",l:"OH, US"},{n:"Indiana University",c:"Academic",l:"IN, US"},
+  {n:"Purdue University",c:"Academic",l:"IN, US"},{n:"University of Iowa",c:"Academic",l:"IA, US"},
+  {n:"University of Notre Dame",c:"Academic",l:"IN, US"},{n:"Michigan State University",c:"Academic",l:"MI, US"},
+  {n:"University of Colorado Boulder",c:"Academic",l:"CO, US"},{n:"University of Arizona",c:"Academic",l:"AZ, US"},
+  {n:"Arizona State University",c:"Academic",l:"AZ, US"},{n:"University of Southern California (USC)",c:"Academic",l:"CA, US"},
+  {n:"California Institute of Technology (Caltech)",c:"Academic",l:"CA, US"},{n:"Boston University",c:"Academic",l:"MA, US"},
+  {n:"Tufts University",c:"Academic",l:"MA, US"},{n:"Brandeis University",c:"Academic",l:"MA, US"},
+  {n:"Northeastern University",c:"Academic",l:"MA, US"},{n:"Brown University",c:"Academic",l:"RI, US"},
+  {n:"Dartmouth College",c:"Academic",l:"NH, US"},{n:"UMass Chan Medical School",c:"Academic",l:"MA, US"},
+  {n:"Rutgers University",c:"Academic",l:"NJ, US"},{n:"Rockefeller University",c:"Academic",l:"NY, US"},
+  {n:"New York University (NYU)",c:"Academic",l:"NY, US"},{n:"Icahn School of Medicine at Mount Sinai",c:"Academic",l:"NY, US"},
+  {n:"Albert Einstein College of Medicine",c:"Academic",l:"NY, US"},{n:"Stony Brook University",c:"Academic",l:"NY, US"},
+  {n:"University at Buffalo",c:"Academic",l:"NY, US"},{n:"University of Rochester",c:"Academic",l:"NY, US"},
+  {n:"Syracuse University",c:"Academic",l:"NY, US"},{n:"Rensselaer Polytechnic Institute",c:"Academic",l:"NY, US"},
+  {n:"Texas A&M University",c:"Academic",l:"TX, US"},{n:"University of Houston",c:"Academic",l:"TX, US"},
+  {n:"Wake Forest University",c:"Academic",l:"NC, US"},{n:"Medical University of South Carolina (MUSC)",c:"Academic",l:"SC, US"},
+  {n:"University of Vermont",c:"Academic",l:"VT, US"},{n:"University of Delaware",c:"Academic",l:"DE, US"},
+  {n:"Georgetown University",c:"Academic",l:"DC, US"},{n:"George Washington University",c:"Academic",l:"DC, US"},
+  {n:"Drexel University",c:"Academic",l:"PA, US"},{n:"Temple University",c:"Academic",l:"PA, US"},
+  {n:"Broad Institute of MIT and Harvard",c:"Academic",l:"MA, US"},{n:"Whitehead Institute",c:"Academic",l:"MA, US"},
+  {n:"Scripps Research",c:"Academic",l:"CA, US"},{n:"Salk Institute for Biological Studies",c:"Academic",l:"CA, US"},
+  {n:"Sanford Burnham Prebys",c:"Academic",l:"CA, US"},{n:"La Jolla Institute for Immunology",c:"Academic",l:"CA, US"},
+  {n:"Dana-Farber Cancer Institute",c:"Academic",l:"MA, US"},{n:"Memorial Sloan Kettering Cancer Center",c:"Academic",l:"NY, US"},
+  {n:"Fred Hutchinson Cancer Center",c:"Academic",l:"WA, US"},{n:"Mayo Clinic",c:"Academic",l:"MN, US"},
+  {n:"Cleveland Clinic (Lerner Research Institute)",c:"Academic",l:"OH, US"},{n:"Massachusetts General Hospital",c:"Academic",l:"MA, US"},
+  {n:"Brigham and Women's Hospital",c:"Academic",l:"MA, US"},{n:"Boston Children's Hospital",c:"Academic",l:"MA, US"},
+  {n:"Beth Israel Deaconess Medical Center",c:"Academic",l:"MA, US"},{n:"Children's Hospital of Philadelphia (CHOP)",c:"Academic",l:"PA, US"},
+  {n:"Joslin Diabetes Center",c:"Academic",l:"MA, US"}
+];
+
+const CATS = [
+  {key:"Pharma",   label:"Pharmaceutical"},
+  {key:"Biotech",  label:"Biotech"},
+  {key:"Academic", label:"Academic & Research"},
+  {key:"Service",  label:"Service Partners"}
+];
+
+const MARQUEE = ["AbbVie","Amgen","AstraZeneca","Bristol Myers Squibb","Eli Lilly","Johnson & Johnson",
+  "Merck & Co.","Moderna","Novo Nordisk","Pfizer","Roche","Sanofi","Takeda","Vertex","CRISPR Therapeutics",
+  "Beam Therapeutics","Ginkgo Bioworks","Generate Biomedicines","Tessera Therapeutics","Harvard University",
+  "MIT","Stanford University","Broad Institute","Dana-Farber","Mass General Hospital",
+  "Thermo Fisher","Charles River Laboratories"];
+
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+/* marquee (duplicated for seamless loop) */
+(function(){
+  const t = document.getElementById("track");
+  const one = MARQUEE.map(n=>`<span class="chip">${esc(n)}</span>`).join("");
+  t.innerHTML = one + one;
+})();
+
+/* counts derived from the data so chips and totals always match */
+const TOTAL = ORGS.length;
+const COUNTS = ORGS.reduce((m,o)=>{ m[o.c]=(m[o.c]||0)+1; return m; }, {});
+document.querySelectorAll(".filter").forEach(b=>{
+  const cat = b.dataset.cat;
+  b.querySelector(".c").textContent = cat==="all" ? TOTAL : (COUNTS[cat]||0);
+});
+
+let activeCat = "all", query = "";
+const results = document.getElementById("results");
+const empty = document.getElementById("empty");
+const countLine = document.getElementById("countLine");
+
+function render(){
+  const q = query.trim().toLowerCase();
+  const matched = ORGS.filter(o =>
+    (activeCat==="all" || o.c===activeCat) &&
+    (q==="" || o.n.toLowerCase().includes(q) || (o.l&&o.l.toLowerCase().includes(q)))
+  );
+  results.innerHTML = "";
+  CATS.forEach(cat=>{
+    const items = matched.filter(o=>o.c===cat.key).sort((a,b)=>a.n.localeCompare(b.n));
+    if(!items.length) return;
+    const li = items.map(o=>
+      `<li><span>${esc(o.n)}</span>${o.l?`<span class="loc">${esc(o.l)}</span>`:""}</li>`).join("");
+    results.insertAdjacentHTML("beforeend",
+      `<div class="group"><h3>${cat.label}<span class="gc">${items.length}</span></h3><ul class="orgs">${li}</ul></div>`);
+  });
+  empty.style.display = matched.length ? "none" : "block";
+  const scope = activeCat==="all" ? "all categories" : CATS.find(c=>c.key===activeCat).label;
+  countLine.innerHTML = `Showing <b>${matched.length}</b> of <b>${TOTAL}</b> organizations` +
+    (q ? ` matching “${esc(query.trim())}”` : ` · ${scope}`);
+}
+
+document.getElementById("filters").addEventListener("click", e=>{
+  const b = e.target.closest(".filter"); if(!b) return;
+  activeCat = b.dataset.cat;
+  document.querySelectorAll(".filter").forEach(f=>f.setAttribute("aria-pressed", f===b));
+  render();
+});
+
+/* clickable category numbers filter the directory and scroll to it */
+document.querySelectorAll(".exp-numbers .cell[data-cat]").forEach(cell=>{
+  const go = () => {
+    activeCat = cell.dataset.cat; query = ""; const qEl = document.getElementById("q"); if(qEl) qEl.value = "";
+    document.querySelectorAll(".filter").forEach(f=>f.setAttribute("aria-pressed", f.dataset.cat===activeCat));
+    render();
+    document.getElementById("filters").scrollIntoView({ behavior:"smooth", block:"start" });
+  };
+  cell.addEventListener("click", go);
+  cell.addEventListener("keydown", e=>{ if(e.key==="Enter" || e.key===" "){ e.preventDefault(); go(); } });
+});
+document.getElementById("q").addEventListener("input", e=>{ query=e.target.value; render(); });
+
+document.querySelectorAll("[data-year]").forEach(el=>{ el.textContent = new Date().getFullYear(); });
+render();
+</script>
+</body>
+</html>
