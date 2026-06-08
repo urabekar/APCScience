@@ -69,6 +69,40 @@
   .exp-note p { font-size: .95rem; color: var(--slate); max-width: 74ch; margin: 0; }
   .exp-note .label { color: var(--navy); font-weight: 700; }
 </style>
+<!-- Structured data: founder Person + ProfilePage.
+     Reuses the canonical @id (amritchaudhuri.com/#amrit) so search engines treat
+     this directory as the SAME entity documented on amritchaudhuri.com, LinkedIn,
+     Crunchbase, kaliperco.com, and Wikidata. The 208 organizations are intentionally
+     NOT modeled as schema nodes (that would be schema stuffing); the HTML list is for
+     humans, the JSON-LD only identifies whose experience this is. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.amritchaudhuri.com/#amrit",
+      "name": "Amrit Chaudhuri",
+      "url": "https://www.amritchaudhuri.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/amrit-chaudhuri",
+        "https://www.crunchbase.com/person/amrit-chaudhuri",
+        "https://www.kaliperco.com",
+        "https://www.amritchaudhuri.com",
+        "https://www.wikidata.org/wiki/Q139913228"
+      ]
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://www.apc.science/experience.html",
+      "url": "https://www.apc.science/experience.html",
+      "name": "Selected experience, Amrit Chaudhuri",
+      "mainEntity": { "@id": "https://www.amritchaudhuri.com/#amrit" },
+      "about": { "@id": "https://www.amritchaudhuri.com/#amrit" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -182,6 +216,7 @@
         <h4>Get in touch</h4>
         <a href="mailto:amrit@apc.science">amrit@apc.science</a>
         <a href="https://www.linkedin.com/in/amrit-chaudhuri/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.amritchaudhuri.com" target="_blank" rel="me noopener">amritchaudhuri.com</a>
       </div>
     </div>
     <div class="footer-bottom">
