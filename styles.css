@@ -2,6 +2,9 @@
    Clean scientific / modern theme. Built fresh.
    Design tokens first, components after. */
 
+/* Self-hosted variable font (woff2, latin subset). font-display:swap avoids invisible text on load. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(fonts/inter-latin-wght-normal.woff2) format("woff2"); }
+
 :root {
   /* Meridian identity */
   --navy: #0B1D2D;
@@ -46,7 +49,7 @@ h1, h2, h3, h4 {
 }
 h1 { font-size: clamp(2.1rem, 4.6vw, 3.5rem); }
 h2 { font-size: clamp(1.6rem, 3vw, 2.35rem); }
-h3 { font-size: 1.22rem; }
+h3, .h3 { font-size: 1.22rem; }
 p { margin: 0 0 1.1em; color: var(--slate); }
 a { color: var(--teal); text-decoration: none; transition: color .15s ease; }
 a:hover { color: var(--navy); }
@@ -149,7 +152,7 @@ section { padding: 84px 0; }
   box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
 }
 .hero-panel:before { content: ""; position: absolute; inset: 0; background: radial-gradient(420px 220px at 90% 0%, rgba(20,184,166,.28), transparent 60%); }
-.hero-panel h3 { color: #fff; position: relative; }
+.hero-panel h2 { color: #fff; position: relative; font-size: 1.22rem; }
 .hero-panel ul { position: relative; list-style: none; padding: 0; margin: 14px 0 0; }
 .hero-panel li { position: relative; padding: 12px 0 12px 28px; border-top: 1px solid rgba(255,255,255,.10); color: #cfe0ee; font-size: .98rem; }
 .hero-panel li:first-child { border-top: 0; }
@@ -179,7 +182,7 @@ section { padding: 84px 0; }
 .feature + .feature { margin-top: 80px; }
 .feature.reverse .feature-media { order: 2; }
 .feature-media { background: linear-gradient(155deg, var(--bg-softer), var(--white)); border: 1px solid var(--line); border-radius: 18px; padding: 34px; box-shadow: var(--shadow); }
-.feature-media h4 { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.feature-media h3 { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
 .tag-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 6px; }
 .tag { font-size: .83rem; font-weight: 600; color: var(--navy); background: var(--white); border: 1px solid var(--line); padding: 7px 13px; border-radius: 999px; }
 .feature-media .tag { background: var(--teal-pale); border-color: #cdeae6; color: #0b7268; }
@@ -199,7 +202,7 @@ ul.check li:before { content: ""; position: absolute; left: 2px; top: 15px; widt
 .steps { counter-reset: step; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .step { position: relative; padding-top: 18px; border-top: 2px solid var(--line); }
 .step:before { counter-increment: step; content: "0" counter(step); font-weight: 800; color: var(--teal); font-size: 1.1rem; letter-spacing: .06em; }
-.step h4 { margin: 10px 0 6px; color: var(--navy); font-size: 1.1rem; }
+.step h3 { margin: 10px 0 6px; color: var(--navy); font-size: 1.1rem; }
 .step p { font-size: .95rem; margin: 0; }
 
 /* ---------- CTA band ---------- */
@@ -256,7 +259,7 @@ ul.check li:before { content: ""; position: absolute; left: 2px; top: 15px; widt
 .timeline li:last-child { padding-bottom: 0; }
 .timeline li:before { content: ""; position: absolute; left: -9px; top: 3px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--teal); }
 .timeline .yr { font-weight: 700; color: var(--teal); font-size: .9rem; }
-.timeline h4 { margin: 3px 0 6px; color: var(--navy); font-size: 1.12rem; }
+.timeline h3 { margin: 3px 0 6px; color: var(--navy); font-size: 1.12rem; }
 .timeline p { margin: 0; font-size: .97rem; }
 
 /* trust row */
@@ -290,7 +293,7 @@ ul.check li:before { content: ""; position: absolute; left: 2px; top: 15px; widt
 .site-footer .brand { color: #fff; margin-bottom: 14px; }
 .site-footer .brand .sub { color: #9fb4c9; }
 .site-footer p { color: #9fb4c9; font-size: .95rem; }
-.footer-col h4 { color: #fff; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col h2 { color: #fff; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
 .footer-col a { display: block; color: #9fb4c9; padding: 6px 0; font-size: .95rem; }
 .footer-col a:hover { color: var(--teal-light); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; font-size: .88rem; color: #7f96ad; flex-wrap: wrap; gap: 10px; }
