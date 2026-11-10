@@ -11,9 +11,7 @@
 <meta property="og:url" content="https://www.apc.science/experience.html">
 <meta property="og:site_name" content="APC Science">
 <link rel="canonical" href="https://www.apc.science/experience.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <style>
   /* ---- Experience page (Meridian brand, uses tokens from styles.css) ---- */
@@ -63,6 +61,7 @@
   @media (max-width: 520px) { ul.orgs { grid-template-columns: 1fr; } }
   ul.orgs li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 11px 2px; border-bottom: 1px solid var(--line); font-size: .96rem; color: var(--ink); }
   ul.orgs li .loc { font-size: .78rem; color: var(--slate); white-space: nowrap; }
+  ul.orgs li[hidden], .group[hidden] { display: none; }
   .empty { display: none; color: var(--slate); padding: 40px 0; }
 
   .exp-note { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -150,7 +149,10 @@
 <!-- MARQUEE -->
 <section class="marquee-sec">
   <div class="wrap"><div class="kicker">A few of the names</div></div>
-  <div class="marquee"><div class="track" id="track"></div></div>
+  <div class="marquee"><div class="track" id="track">
+      <span class="chip">AbbVie</span><span class="chip">Amgen</span><span class="chip">AstraZeneca</span><span class="chip">Bristol Myers Squibb</span><span class="chip">Eli Lilly</span><span class="chip">Johnson &amp; Johnson</span><span class="chip">Merck &amp; Co.</span><span class="chip">Moderna</span><span class="chip">Novo Nordisk</span><span class="chip">Pfizer</span><span class="chip">Roche</span><span class="chip">Sanofi</span><span class="chip">Takeda</span><span class="chip">Vertex</span><span class="chip">CRISPR Therapeutics</span><span class="chip">Beam Therapeutics</span><span class="chip">Ginkgo Bioworks</span><span class="chip">Generate Biomedicines</span><span class="chip">Tessera Therapeutics</span><span class="chip">Harvard University</span><span class="chip">MIT</span><span class="chip">Stanford University</span><span class="chip">Broad Institute</span><span class="chip">Dana-Farber</span><span class="chip">Mass General Hospital</span><span class="chip">Thermo Fisher</span><span class="chip">Charles River Laboratories</span>
+      <span class="chip" aria-hidden="true">AbbVie</span><span class="chip" aria-hidden="true">Amgen</span><span class="chip" aria-hidden="true">AstraZeneca</span><span class="chip" aria-hidden="true">Bristol Myers Squibb</span><span class="chip" aria-hidden="true">Eli Lilly</span><span class="chip" aria-hidden="true">Johnson &amp; Johnson</span><span class="chip" aria-hidden="true">Merck &amp; Co.</span><span class="chip" aria-hidden="true">Moderna</span><span class="chip" aria-hidden="true">Novo Nordisk</span><span class="chip" aria-hidden="true">Pfizer</span><span class="chip" aria-hidden="true">Roche</span><span class="chip" aria-hidden="true">Sanofi</span><span class="chip" aria-hidden="true">Takeda</span><span class="chip" aria-hidden="true">Vertex</span><span class="chip" aria-hidden="true">CRISPR Therapeutics</span><span class="chip" aria-hidden="true">Beam Therapeutics</span><span class="chip" aria-hidden="true">Ginkgo Bioworks</span><span class="chip" aria-hidden="true">Generate Biomedicines</span><span class="chip" aria-hidden="true">Tessera Therapeutics</span><span class="chip" aria-hidden="true">Harvard University</span><span class="chip" aria-hidden="true">MIT</span><span class="chip" aria-hidden="true">Stanford University</span><span class="chip" aria-hidden="true">Broad Institute</span><span class="chip" aria-hidden="true">Dana-Farber</span><span class="chip" aria-hidden="true">Mass General Hospital</span><span class="chip" aria-hidden="true">Thermo Fisher</span><span class="chip" aria-hidden="true">Charles River Laboratories</span>
+  </div></div>
 </section>
 
 <!-- DIRECTORY -->
@@ -164,11 +166,11 @@
 
     <div class="dir-controls">
       <div class="filters" id="filters">
-        <button class="filter" data-cat="all" aria-pressed="true">All <span class="c"></span></button>
-        <button class="filter" data-cat="Pharma" aria-pressed="false">Pharma <span class="c"></span></button>
-        <button class="filter" data-cat="Biotech" aria-pressed="false">Biotech <span class="c"></span></button>
-        <button class="filter" data-cat="Academic" aria-pressed="false">Academic &amp; Research <span class="c"></span></button>
-        <button class="filter" data-cat="Service" aria-pressed="false">Service Partners <span class="c"></span></button>
+        <button class="filter" data-cat="all" aria-pressed="true">All <span class="c">208</span></button>
+        <button class="filter" data-cat="Pharma" aria-pressed="false">Pharma <span class="c">22</span></button>
+        <button class="filter" data-cat="Biotech" aria-pressed="false">Biotech <span class="c">77</span></button>
+        <button class="filter" data-cat="Academic" aria-pressed="false">Academic &amp; Research <span class="c">99</span></button>
+        <button class="filter" data-cat="Service" aria-pressed="false">Service Partners <span class="c">10</span></button>
       </div>
       <div class="search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -176,8 +178,226 @@
       </div>
     </div>
 
-    <div class="count-line" id="countLine"></div>
-    <div id="results"></div>
+    <!-- The full list is in the page so it can be read without JavaScript. The script below only filters it. -->
+    <div class="count-line" id="countLine">Showing <b>208</b> of <b>208</b> organizations · all categories</div>
+    <div id="results">
+      <div class="group" data-cat="Pharma"><h3>Pharmaceutical<span class="gc">22</span></h3><ul class="orgs">
+        <li><span>AbbVie</span></li>
+        <li><span>Amgen</span></li>
+        <li><span>Astellas</span></li>
+        <li><span>AstraZeneca</span></li>
+        <li><span>Bayer</span></li>
+        <li><span>Biogen</span></li>
+        <li><span>Bristol Myers Squibb</span></li>
+        <li><span>Eli Lilly</span></li>
+        <li><span>EMD Serono</span></li>
+        <li><span>GSK</span></li>
+        <li><span>Hengrui</span></li>
+        <li><span>Johnson &amp; Johnson</span></li>
+        <li><span>Merck &amp; Co.</span></li>
+        <li><span>Mitsubishi Tanabe Pharma</span></li>
+        <li><span>Moderna</span></li>
+        <li><span>Novo Nordisk</span></li>
+        <li><span>Pfizer</span></li>
+        <li><span>Roche</span></li>
+        <li><span>Sanofi</span></li>
+        <li><span>Simcere</span></li>
+        <li><span>Takeda</span></li>
+        <li><span>Vertex</span></li>
+      </ul></div>
+      <div class="group" data-cat="Biotech"><h3>Biotech<span class="gc">77</span></h3><ul class="orgs">
+        <li><span>ACTnano</span></li>
+        <li><span>Affinivax</span></li>
+        <li><span>Aktis Oncology</span></li>
+        <li><span>Alector</span></li>
+        <li><span>Allogene Therapeutics</span></li>
+        <li><span>Alloplex Biotherapeutics</span></li>
+        <li><span>Arrakis Therapeutics</span></li>
+        <li><span>ArsenalBio</span></li>
+        <li><span>Ascidian Therapeutics</span></li>
+        <li><span>Atalanta Therapeutics</span></li>
+        <li><span>Be Biopharma</span></li>
+        <li><span>Beam Therapeutics</span></li>
+        <li><span>BlueRock Therapeutics</span></li>
+        <li><span>C4 Therapeutics</span></li>
+        <li><span>Cellaria</span></li>
+        <li><span>Cellarity</span></li>
+        <li><span>CELLINK</span></li>
+        <li><span>Clade Therapeutics</span></li>
+        <li><span>Compass Therapeutics</span></li>
+        <li><span>CRISPR Therapeutics</span></li>
+        <li><span>Cue Biopharma</span></li>
+        <li><span>Cyclerion Therapeutics</span></li>
+        <li><span>Day Zero Diagnostics</span></li>
+        <li><span>EdiGene</span></li>
+        <li><span>Editas Medicine</span></li>
+        <li><span>Eikon Therapeutics</span></li>
+        <li><span>Entrada Therapeutics</span></li>
+        <li><span>Finch Therapeutics</span></li>
+        <li><span>Generate Biomedicines</span></li>
+        <li><span>Generation Bio</span></li>
+        <li><span>Ginkgo Bioworks</span></li>
+        <li><span>Graphite Bio</span></li>
+        <li><span>Gritstone bio</span></li>
+        <li><span>Guardian Therapeutics</span></li>
+        <li><span>HelixNano</span></li>
+        <li><span>Igenomix</span></li>
+        <li><span>Imagen Biopharma</span></li>
+        <li><span>Inkbit</span></li>
+        <li><span>Intergalactic</span></li>
+        <li><span>Jnana Therapeutics</span></li>
+        <li><span>Kernal Biologics</span></li>
+        <li><span>Kintai Therapeutics</span></li>
+        <li><span>Korro Bio</span></li>
+        <li><span>Kronos Bio</span></li>
+        <li><span>Mammoth Biosciences</span></li>
+        <li><span>Mariana Oncology</span></li>
+        <li><span>Metagenomi</span></li>
+        <li><span>Montai Therapeutics</span></li>
+        <li><span>Monte Rosa Therapeutics</span></li>
+        <li><span>NextRNA Therapeutics</span></li>
+        <li><span>Nkarta Therapeutics</span></li>
+        <li><span>Noetik</span></li>
+        <li><span>Obsidian Therapeutics</span></li>
+        <li><span>Odyssey Therapeutics</span></li>
+        <li><span>Oncorus</span></li>
+        <li><span>ORNA Therapeutics</span></li>
+        <li><span>Pandion Therapeutics</span></li>
+        <li><span>Parvus Therapeutics</span></li>
+        <li><span>Prime Medicine</span></li>
+        <li><span>Radius Health</span></li>
+        <li><span>Sana Biotechnology</span></li>
+        <li><span>Scorpion Therapeutics</span></li>
+        <li><span>Sensei Biotherapeutics</span></li>
+        <li><span>Senti Biosciences</span></li>
+        <li><span>Seres Therapeutics</span></li>
+        <li><span>Sherlock Biosciences</span></li>
+        <li><span>Solid Biosciences</span></li>
+        <li><span>Tango Therapeutics</span></li>
+        <li><span>TCR2 Therapeutics</span></li>
+        <li><span>Tessera Therapeutics</span></li>
+        <li><span>Verge Genomics</span></li>
+        <li><span>Verve Therapeutics</span></li>
+        <li><span>Vor Biopharma</span></li>
+        <li><span>WaveGuide</span></li>
+        <li><span>Xsphera Biosciences</span></li>
+        <li><span>Yumanity Therapeutics</span></li>
+        <li><span>Zymergen</span></li>
+      </ul></div>
+      <div class="group" data-cat="Academic"><h3>Academic &amp; Research<span class="gc">99</span></h3><ul class="orgs">
+        <li><span>A*STAR</span><span class="loc">Singapore</span></li>
+        <li><span>Albert Einstein College of Medicine</span><span class="loc">NY, US</span></li>
+        <li><span>Arizona State University</span><span class="loc">AZ, US</span></li>
+        <li><span>Beth Israel Deaconess Medical Center</span><span class="loc">MA, US</span></li>
+        <li><span>Boston Children's Hospital</span><span class="loc">MA, US</span></li>
+        <li><span>Boston University</span><span class="loc">MA, US</span></li>
+        <li><span>Brandeis University</span><span class="loc">MA, US</span></li>
+        <li><span>Brigham and Women's Hospital</span><span class="loc">MA, US</span></li>
+        <li><span>Broad Institute of MIT and Harvard</span><span class="loc">MA, US</span></li>
+        <li><span>Brown University</span><span class="loc">RI, US</span></li>
+        <li><span>California Institute of Technology (Caltech)</span><span class="loc">CA, US</span></li>
+        <li><span>Case Western Reserve University</span><span class="loc">OH, US</span></li>
+        <li><span>Children's Hospital of Philadelphia (CHOP)</span><span class="loc">PA, US</span></li>
+        <li><span>Cleveland Clinic (Lerner Research Institute)</span><span class="loc">OH, US</span></li>
+        <li><span>Columbia University</span><span class="loc">NY, US</span></li>
+        <li><span>Cornell University</span><span class="loc">NY, US</span></li>
+        <li><span>Dana-Farber Cancer Institute</span><span class="loc">MA, US</span></li>
+        <li><span>Dartmouth College</span><span class="loc">NH, US</span></li>
+        <li><span>Drexel University</span><span class="loc">PA, US</span></li>
+        <li><span>Emory University</span><span class="loc">GA, US</span></li>
+        <li><span>Florida State University</span><span class="loc">FL, US</span></li>
+        <li><span>Francis Crick Institute</span><span class="loc">UK</span></li>
+        <li><span>Fred Hutchinson Cancer Center</span><span class="loc">WA, US</span></li>
+        <li><span>George Washington University</span><span class="loc">DC, US</span></li>
+        <li><span>Georgetown University</span><span class="loc">DC, US</span></li>
+        <li><span>Georgia Institute of Technology</span><span class="loc">GA, US</span></li>
+        <li><span>Harvard University</span><span class="loc">MA, US</span></li>
+        <li><span>Heidelberg University</span><span class="loc">Germany</span></li>
+        <li><span>Icahn School of Medicine at Mount Sinai</span><span class="loc">NY, US</span></li>
+        <li><span>Indiana University</span><span class="loc">IN, US</span></li>
+        <li><span>Institut Pasteur</span><span class="loc">France</span></li>
+        <li><span>Johns Hopkins University</span><span class="loc">MD, US</span></li>
+        <li><span>Joslin Diabetes Center</span><span class="loc">MA, US</span></li>
+        <li><span>La Jolla Institute for Immunology</span><span class="loc">CA, US</span></li>
+        <li><span>Massachusetts General Hospital</span><span class="loc">MA, US</span></li>
+        <li><span>Massachusetts Institute of Technology (MIT)</span><span class="loc">MA, US</span></li>
+        <li><span>Mayo Clinic</span><span class="loc">MN, US</span></li>
+        <li><span>McGill University</span><span class="loc">Canada</span></li>
+        <li><span>Medical University of South Carolina (MUSC)</span><span class="loc">SC, US</span></li>
+        <li><span>Memorial Sloan Kettering Cancer Center</span><span class="loc">NY, US</span></li>
+        <li><span>Michigan State University</span><span class="loc">MI, US</span></li>
+        <li><span>MRC Laboratory of Molecular Biology</span><span class="loc">UK</span></li>
+        <li><span>New York University (NYU)</span><span class="loc">NY, US</span></li>
+        <li><span>Northeastern University</span><span class="loc">MA, US</span></li>
+        <li><span>Northwestern University</span><span class="loc">IL, US</span></li>
+        <li><span>Pennsylvania State University</span><span class="loc">PA, US</span></li>
+        <li><span>Princeton University</span><span class="loc">NJ, US</span></li>
+        <li><span>Purdue University</span><span class="loc">IN, US</span></li>
+        <li><span>Rensselaer Polytechnic Institute</span><span class="loc">NY, US</span></li>
+        <li><span>Rice University</span><span class="loc">TX, US</span></li>
+        <li><span>Rockefeller University</span><span class="loc">NY, US</span></li>
+        <li><span>Rutgers University</span><span class="loc">NJ, US</span></li>
+        <li><span>Salk Institute for Biological Studies</span><span class="loc">CA, US</span></li>
+        <li><span>Sanford Burnham Prebys</span><span class="loc">CA, US</span></li>
+        <li><span>Scripps Research</span><span class="loc">CA, US</span></li>
+        <li><span>Stanford University</span><span class="loc">CA, US</span></li>
+        <li><span>Stony Brook University</span><span class="loc">NY, US</span></li>
+        <li><span>Syracuse University</span><span class="loc">NY, US</span></li>
+        <li><span>Temple University</span><span class="loc">PA, US</span></li>
+        <li><span>Texas A&amp;M University</span><span class="loc">TX, US</span></li>
+        <li><span>Tufts University</span><span class="loc">MA, US</span></li>
+        <li><span>UMass Chan Medical School</span><span class="loc">MA, US</span></li>
+        <li><span>University at Buffalo</span><span class="loc">NY, US</span></li>
+        <li><span>University College London (UCL)</span><span class="loc">UK</span></li>
+        <li><span>University of Arizona</span><span class="loc">AZ, US</span></li>
+        <li><span>University of Barcelona</span><span class="loc">Spain</span></li>
+        <li><span>University of California, Berkeley</span><span class="loc">CA, US</span></li>
+        <li><span>University of California, Los Angeles (UCLA)</span><span class="loc">CA, US</span></li>
+        <li><span>University of California, San Diego (UCSD)</span><span class="loc">CA, US</span></li>
+        <li><span>University of California, San Francisco (UCSF)</span><span class="loc">CA, US</span></li>
+        <li><span>University of Cambridge</span><span class="loc">UK</span></li>
+        <li><span>University of Chicago</span><span class="loc">IL, US</span></li>
+        <li><span>University of Cincinnati</span><span class="loc">OH, US</span></li>
+        <li><span>University of Colorado Boulder</span><span class="loc">CO, US</span></li>
+        <li><span>University of Delaware</span><span class="loc">DE, US</span></li>
+        <li><span>University of Florida</span><span class="loc">FL, US</span></li>
+        <li><span>University of Georgia</span><span class="loc">GA, US</span></li>
+        <li><span>University of Houston</span><span class="loc">TX, US</span></li>
+        <li><span>University of Iowa</span><span class="loc">IA, US</span></li>
+        <li><span>University of Maryland, Baltimore</span><span class="loc">MD, US</span></li>
+        <li><span>University of Michigan</span><span class="loc">MI, US</span></li>
+        <li><span>University of Minnesota</span><span class="loc">MN, US</span></li>
+        <li><span>University of North Carolina at Chapel Hill</span><span class="loc">NC, US</span></li>
+        <li><span>University of Notre Dame</span><span class="loc">IN, US</span></li>
+        <li><span>University of Oxford</span><span class="loc">UK</span></li>
+        <li><span>University of Pennsylvania</span><span class="loc">PA, US</span></li>
+        <li><span>University of Rochester</span><span class="loc">NY, US</span></li>
+        <li><span>University of Southern California (USC)</span><span class="loc">CA, US</span></li>
+        <li><span>University of Vermont</span><span class="loc">VT, US</span></li>
+        <li><span>University of Virginia</span><span class="loc">VA, US</span></li>
+        <li><span>University of Zurich</span><span class="loc">Switzerland</span></li>
+        <li><span>UT MD Anderson Cancer Center</span><span class="loc">TX, US</span></li>
+        <li><span>UT Southwestern Medical Center</span><span class="loc">TX, US</span></li>
+        <li><span>Vanderbilt University</span><span class="loc">TN, US</span></li>
+        <li><span>Virginia Tech</span><span class="loc">VA, US</span></li>
+        <li><span>Wake Forest University</span><span class="loc">NC, US</span></li>
+        <li><span>Washington University in St. Louis</span><span class="loc">MO, US</span></li>
+        <li><span>Whitehead Institute</span><span class="loc">MA, US</span></li>
+        <li><span>Yale University</span><span class="loc">CT, US</span></li>
+      </ul></div>
+      <div class="group" data-cat="Service"><h3>Service Partners<span class="gc">10</span></h3><ul class="orgs">
+        <li><span>AmbioPharm</span></li>
+        <li><span>Charles River Laboratories</span></li>
+        <li><span>EMD Chemicals</span></li>
+        <li><span>GL Biochem</span></li>
+        <li><span>Millipore (MilliporeSigma)</span></li>
+        <li><span>New England Biolabs</span></li>
+        <li><span>Nikon Instruments</span></li>
+        <li><span>Sartorius</span></li>
+        <li><span>Thermo Fisher</span></li>
+        <li><span>VWR</span></li>
+      </ul></div>
+    </div>
     <div class="empty" id="empty">No organizations match that search.</div>
   </div>
 </section>
@@ -209,7 +429,7 @@
         <p>APC Science is a specialist consultancy for drug developers. We shape development strategy, planning, and operations across every modality and stage, and we go hands-on with the chemistry and technical development of peptide, antibody, and conjugate therapeutics.</p>
       </div>
       <div class="footer-col">
-        <h4>Explore</h4>
+        <h2>Explore</h2>
         <a href="./">Home</a>
         <a href="services.html">Services</a>
         <a href="founder.html">Founder</a>
@@ -217,7 +437,7 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-col">
-        <h4>Get in touch</h4>
+        <h2>Get in touch</h2>
         <a href="mailto:amrit@apc.science">amrit@apc.science</a>
         <a href="https://www.linkedin.com/in/amrit-chaudhuri/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.amritchaudhuri.com" target="_blank" rel="me noopener">amritchaudhuri.com</a>
@@ -231,154 +451,50 @@
 </footer>
 
 <script>
-/* ---- data: organizations Amrit worked with, 2007–2024 ---- */
-const ORGS = [
-  // Pharma (22)
-  {n:"AbbVie",c:"Pharma"},{n:"Amgen",c:"Pharma"},{n:"Astellas",c:"Pharma"},
-  {n:"AstraZeneca",c:"Pharma"},{n:"Bayer",c:"Pharma"},{n:"Biogen",c:"Pharma"},
-  {n:"Bristol Myers Squibb",c:"Pharma"},{n:"Eli Lilly",c:"Pharma"},{n:"EMD Serono",c:"Pharma"},
-  {n:"GSK",c:"Pharma"},{n:"Hengrui",c:"Pharma"},{n:"Johnson & Johnson",c:"Pharma"},
-  {n:"Merck & Co.",c:"Pharma"},{n:"Mitsubishi Tanabe Pharma",c:"Pharma"},{n:"Moderna",c:"Pharma"},
-  {n:"Novo Nordisk",c:"Pharma"},{n:"Pfizer",c:"Pharma"},{n:"Roche",c:"Pharma"},{n:"Sanofi",c:"Pharma"},
-  {n:"Simcere",c:"Pharma"},{n:"Takeda",c:"Pharma"},{n:"Vertex",c:"Pharma"},
-  // Biotech (77)
-  {n:"CRISPR Therapeutics",c:"Biotech"},{n:"Editas Medicine",c:"Biotech"},{n:"Beam Therapeutics",c:"Biotech"},
-  {n:"Prime Medicine",c:"Biotech"},{n:"EdiGene",c:"Biotech"},{n:"BlueRock Therapeutics",c:"Biotech"},
-  {n:"Sana Biotechnology",c:"Biotech"},{n:"Scorpion Therapeutics",c:"Biotech"},{n:"Odyssey Therapeutics",c:"Biotech"},
-  {n:"Sherlock Biosciences",c:"Biotech"},{n:"Clade Therapeutics",c:"Biotech"},{n:"Sensei Biotherapeutics",c:"Biotech"},
-  {n:"Solid Biosciences",c:"Biotech"},{n:"TCR2 Therapeutics",c:"Biotech"},{n:"Gritstone bio",c:"Biotech"},
-  {n:"Cue Biopharma",c:"Biotech"},{n:"Entrada Therapeutics",c:"Biotech"},{n:"Xsphera Biosciences",c:"Biotech"},
-  {n:"Verge Genomics",c:"Biotech"},{n:"Parvus Therapeutics",c:"Biotech"},{n:"Jnana Therapeutics",c:"Biotech"},
-  {n:"Kronos Bio",c:"Biotech"},{n:"Kintai Therapeutics",c:"Biotech"},{n:"Kernal Biologics",c:"Biotech"},
-  {n:"Oncorus",c:"Biotech"},{n:"Yumanity Therapeutics",c:"Biotech"},{n:"Finch Therapeutics",c:"Biotech"},
-  {n:"Cyclerion Therapeutics",c:"Biotech"},{n:"Day Zero Diagnostics",c:"Biotech"},{n:"Monte Rosa Therapeutics",c:"Biotech"},
-  {n:"Seres Therapeutics",c:"Biotech"},{n:"ORNA Therapeutics",c:"Biotech"},{n:"NextRNA Therapeutics",c:"Biotech"},
-  {n:"Guardian Therapeutics",c:"Biotech"},{n:"Atalanta Therapeutics",c:"Biotech"},{n:"Ascidian Therapeutics",c:"Biotech"},
-  {n:"Alloplex Biotherapeutics",c:"Biotech"},{n:"HelixNano",c:"Biotech"},{n:"ACTnano",c:"Biotech"},
-  {n:"Inkbit",c:"Biotech"},{n:"Igenomix",c:"Biotech"},{n:"Radius Health",c:"Biotech"},
-  {n:"C4 Therapeutics",c:"Biotech"},{n:"Cellaria",c:"Biotech"},{n:"CELLINK",c:"Biotech"},
-  {n:"Imagen Biopharma",c:"Biotech"},{n:"WaveGuide",c:"Biotech"},{n:"Intergalactic",c:"Biotech"},
-  {n:"Alector",c:"Biotech"},{n:"ArsenalBio",c:"Biotech"},{n:"Senti Biosciences",c:"Biotech"},
-  {n:"Mammoth Biosciences",c:"Biotech"},{n:"Vor Biopharma",c:"Biotech"},{n:"Obsidian Therapeutics",c:"Biotech"},
-  {n:"Affinivax",c:"Biotech"},{n:"Ginkgo Bioworks",c:"Biotech"},{n:"Korro Bio",c:"Biotech"},
-  {n:"Tango Therapeutics",c:"Biotech"},{n:"Arrakis Therapeutics",c:"Biotech"},{n:"Tessera Therapeutics",c:"Biotech"},
-  {n:"Generation Bio",c:"Biotech"},{n:"Be Biopharma",c:"Biotech"},{n:"Verve Therapeutics",c:"Biotech"},
-  {n:"Aktis Oncology",c:"Biotech"},{n:"Mariana Oncology",c:"Biotech"},{n:"Compass Therapeutics",c:"Biotech"},
-  {n:"Pandion Therapeutics",c:"Biotech"},{n:"Montai Therapeutics",c:"Biotech"},{n:"Cellarity",c:"Biotech"},
-  {n:"Generate Biomedicines",c:"Biotech"},{n:"Allogene Therapeutics",c:"Biotech"},{n:"Graphite Bio",c:"Biotech"},
-  {n:"Nkarta Therapeutics",c:"Biotech"},{n:"Metagenomi",c:"Biotech"},{n:"Zymergen",c:"Biotech"},
-  {n:"Eikon Therapeutics",c:"Biotech"},{n:"Noetik",c:"Biotech"},
-  // Service Partners (10)
-  {n:"Charles River Laboratories",c:"Service"},{n:"Thermo Fisher",c:"Service"},{n:"Sartorius",c:"Service"},
-  {n:"Nikon Instruments",c:"Service"},{n:"VWR",c:"Service"},{n:"Millipore (MilliporeSigma)",c:"Service"},
-  {n:"EMD Chemicals",c:"Service"},{n:"New England Biolabs",c:"Service"},{n:"AmbioPharm",c:"Service"},
-  {n:"GL Biochem",c:"Service"},
-  // Academic / Research (99)
-  {n:"University of Oxford",c:"Academic",l:"UK"},{n:"University of Cambridge",c:"Academic",l:"UK"},
-  {n:"University College London (UCL)",c:"Academic",l:"UK"},{n:"Francis Crick Institute",c:"Academic",l:"UK"},
-  {n:"MRC Laboratory of Molecular Biology",c:"Academic",l:"UK"},{n:"Heidelberg University",c:"Academic",l:"Germany"},
-  {n:"University of Zurich",c:"Academic",l:"Switzerland"},{n:"Institut Pasteur",c:"Academic",l:"France"},
-  {n:"University of Barcelona",c:"Academic",l:"Spain"},{n:"McGill University",c:"Academic",l:"Canada"},
-  {n:"A*STAR",c:"Academic",l:"Singapore"},{n:"Harvard University",c:"Academic",l:"MA, US"},
-  {n:"Massachusetts Institute of Technology (MIT)",c:"Academic",l:"MA, US"},{n:"Stanford University",c:"Academic",l:"CA, US"},
-  {n:"Johns Hopkins University",c:"Academic",l:"MD, US"},{n:"University of California, San Francisco (UCSF)",c:"Academic",l:"CA, US"},
-  {n:"University of California, Berkeley",c:"Academic",l:"CA, US"},{n:"University of California, Los Angeles (UCLA)",c:"Academic",l:"CA, US"},
-  {n:"University of California, San Diego (UCSD)",c:"Academic",l:"CA, US"},{n:"Yale University",c:"Academic",l:"CT, US"},
-  {n:"Columbia University",c:"Academic",l:"NY, US"},{n:"University of Pennsylvania",c:"Academic",l:"PA, US"},
-  {n:"Princeton University",c:"Academic",l:"NJ, US"},{n:"Cornell University",c:"Academic",l:"NY, US"},
-  {n:"University of Chicago",c:"Academic",l:"IL, US"},{n:"Northwestern University",c:"Academic",l:"IL, US"},
-  {n:"Washington University in St. Louis",c:"Academic",l:"MO, US"},{n:"University of Michigan",c:"Academic",l:"MI, US"},
-  {n:"University of Minnesota",c:"Academic",l:"MN, US"},{n:"UT Southwestern Medical Center",c:"Academic",l:"TX, US"},
-  {n:"UT MD Anderson Cancer Center",c:"Academic",l:"TX, US"},{n:"Rice University",c:"Academic",l:"TX, US"},
-  {n:"University of North Carolina at Chapel Hill",c:"Academic",l:"NC, US"},{n:"University of Florida",c:"Academic",l:"FL, US"},
-  {n:"Florida State University",c:"Academic",l:"FL, US"},{n:"Emory University",c:"Academic",l:"GA, US"},
-  {n:"Georgia Institute of Technology",c:"Academic",l:"GA, US"},{n:"University of Georgia",c:"Academic",l:"GA, US"},
-  {n:"Vanderbilt University",c:"Academic",l:"TN, US"},{n:"Pennsylvania State University",c:"Academic",l:"PA, US"},
-  {n:"University of Maryland, Baltimore",c:"Academic",l:"MD, US"},{n:"University of Virginia",c:"Academic",l:"VA, US"},
-  {n:"Virginia Tech",c:"Academic",l:"VA, US"},{n:"Case Western Reserve University",c:"Academic",l:"OH, US"},
-  {n:"University of Cincinnati",c:"Academic",l:"OH, US"},{n:"Indiana University",c:"Academic",l:"IN, US"},
-  {n:"Purdue University",c:"Academic",l:"IN, US"},{n:"University of Iowa",c:"Academic",l:"IA, US"},
-  {n:"University of Notre Dame",c:"Academic",l:"IN, US"},{n:"Michigan State University",c:"Academic",l:"MI, US"},
-  {n:"University of Colorado Boulder",c:"Academic",l:"CO, US"},{n:"University of Arizona",c:"Academic",l:"AZ, US"},
-  {n:"Arizona State University",c:"Academic",l:"AZ, US"},{n:"University of Southern California (USC)",c:"Academic",l:"CA, US"},
-  {n:"California Institute of Technology (Caltech)",c:"Academic",l:"CA, US"},{n:"Boston University",c:"Academic",l:"MA, US"},
-  {n:"Tufts University",c:"Academic",l:"MA, US"},{n:"Brandeis University",c:"Academic",l:"MA, US"},
-  {n:"Northeastern University",c:"Academic",l:"MA, US"},{n:"Brown University",c:"Academic",l:"RI, US"},
-  {n:"Dartmouth College",c:"Academic",l:"NH, US"},{n:"UMass Chan Medical School",c:"Academic",l:"MA, US"},
-  {n:"Rutgers University",c:"Academic",l:"NJ, US"},{n:"Rockefeller University",c:"Academic",l:"NY, US"},
-  {n:"New York University (NYU)",c:"Academic",l:"NY, US"},{n:"Icahn School of Medicine at Mount Sinai",c:"Academic",l:"NY, US"},
-  {n:"Albert Einstein College of Medicine",c:"Academic",l:"NY, US"},{n:"Stony Brook University",c:"Academic",l:"NY, US"},
-  {n:"University at Buffalo",c:"Academic",l:"NY, US"},{n:"University of Rochester",c:"Academic",l:"NY, US"},
-  {n:"Syracuse University",c:"Academic",l:"NY, US"},{n:"Rensselaer Polytechnic Institute",c:"Academic",l:"NY, US"},
-  {n:"Texas A&M University",c:"Academic",l:"TX, US"},{n:"University of Houston",c:"Academic",l:"TX, US"},
-  {n:"Wake Forest University",c:"Academic",l:"NC, US"},{n:"Medical University of South Carolina (MUSC)",c:"Academic",l:"SC, US"},
-  {n:"University of Vermont",c:"Academic",l:"VT, US"},{n:"University of Delaware",c:"Academic",l:"DE, US"},
-  {n:"Georgetown University",c:"Academic",l:"DC, US"},{n:"George Washington University",c:"Academic",l:"DC, US"},
-  {n:"Drexel University",c:"Academic",l:"PA, US"},{n:"Temple University",c:"Academic",l:"PA, US"},
-  {n:"Broad Institute of MIT and Harvard",c:"Academic",l:"MA, US"},{n:"Whitehead Institute",c:"Academic",l:"MA, US"},
-  {n:"Scripps Research",c:"Academic",l:"CA, US"},{n:"Salk Institute for Biological Studies",c:"Academic",l:"CA, US"},
-  {n:"Sanford Burnham Prebys",c:"Academic",l:"CA, US"},{n:"La Jolla Institute for Immunology",c:"Academic",l:"CA, US"},
-  {n:"Dana-Farber Cancer Institute",c:"Academic",l:"MA, US"},{n:"Memorial Sloan Kettering Cancer Center",c:"Academic",l:"NY, US"},
-  {n:"Fred Hutchinson Cancer Center",c:"Academic",l:"WA, US"},{n:"Mayo Clinic",c:"Academic",l:"MN, US"},
-  {n:"Cleveland Clinic (Lerner Research Institute)",c:"Academic",l:"OH, US"},{n:"Massachusetts General Hospital",c:"Academic",l:"MA, US"},
-  {n:"Brigham and Women's Hospital",c:"Academic",l:"MA, US"},{n:"Boston Children's Hospital",c:"Academic",l:"MA, US"},
-  {n:"Beth Israel Deaconess Medical Center",c:"Academic",l:"MA, US"},{n:"Children's Hospital of Philadelphia (CHOP)",c:"Academic",l:"PA, US"},
-  {n:"Joslin Diabetes Center",c:"Academic",l:"MA, US"}
-];
-
-const CATS = [
-  {key:"Pharma",   label:"Pharmaceutical"},
-  {key:"Biotech",  label:"Biotech"},
-  {key:"Academic", label:"Academic & Research"},
-  {key:"Service",  label:"Service Partners"}
-];
-
-const MARQUEE = ["AbbVie","Amgen","AstraZeneca","Bristol Myers Squibb","Eli Lilly","Johnson & Johnson",
-  "Merck & Co.","Moderna","Novo Nordisk","Pfizer","Roche","Sanofi","Takeda","Vertex","CRISPR Therapeutics",
-  "Beam Therapeutics","Ginkgo Bioworks","Generate Biomedicines","Tessera Therapeutics","Harvard University",
-  "MIT","Stanford University","Broad Institute","Dana-Farber","Mass General Hospital",
-  "Thermo Fisher","Charles River Laboratories"];
+/* The organization list is written into the HTML above so it can be read without
+   JavaScript. This script only counts, filters and searches that list. To add or
+   remove an organization, edit the list in the HTML. */
+const results = document.getElementById("results");
+const GROUPS = [...results.querySelectorAll(".group")].map(g=>({
+  el: g, cat: g.dataset.cat, label: g.querySelector("h3").firstChild.textContent, gc: g.querySelector(".gc"),
+  items: [...g.querySelectorAll("li")].map(li=>{
+    const loc = li.querySelector(".loc");
+    return { el: li, n: li.querySelector("span").textContent.toLowerCase(), l: loc ? loc.textContent.toLowerCase() : "" };
+  })
+}));
 
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
-/* marquee (duplicated for seamless loop) */
-(function(){
-  const t = document.getElementById("track");
-  const one = MARQUEE.map(n=>`<span class="chip">${esc(n)}</span>`).join("");
-  t.innerHTML = one + one;
-})();
-
-/* counts derived from the data so chips and totals always match */
-const TOTAL = ORGS.length;
-const COUNTS = ORGS.reduce((m,o)=>{ m[o.c]=(m[o.c]||0)+1; return m; }, {});
+/* counts derived from the list so chips and totals always match */
+const TOTAL = GROUPS.reduce((n,g)=>n+g.items.length, 0);
+const COUNTS = GROUPS.reduce((m,g)=>{ m[g.cat]=g.items.length; return m; }, {});
 document.querySelectorAll(".filter").forEach(b=>{
   const cat = b.dataset.cat;
   b.querySelector(".c").textContent = cat==="all" ? TOTAL : (COUNTS[cat]||0);
 });
 
 let activeCat = "all", query = "";
-const results = document.getElementById("results");
 const empty = document.getElementById("empty");
 const countLine = document.getElementById("countLine");
 
 function render(){
   const q = query.trim().toLowerCase();
-  const matched = ORGS.filter(o =>
-    (activeCat==="all" || o.c===activeCat) &&
-    (q==="" || o.n.toLowerCase().includes(q) || (o.l&&o.l.toLowerCase().includes(q)))
-  );
-  results.innerHTML = "";
-  CATS.forEach(cat=>{
-    const items = matched.filter(o=>o.c===cat.key).sort((a,b)=>a.n.localeCompare(b.n));
-    if(!items.length) return;
-    const li = items.map(o=>
-      `<li><span>${esc(o.n)}</span>${o.l?`<span class="loc">${esc(o.l)}</span>`:""}</li>`).join("");
-    results.insertAdjacentHTML("beforeend",
-      `<div class="group"><h3>${cat.label}<span class="gc">${items.length}</span></h3><ul class="orgs">${li}</ul></div>`);
+  let matched = 0, scope = "all categories";
+  GROUPS.forEach(g=>{
+    const inCat = activeCat==="all" || g.cat===activeCat;
+    if(g.cat===activeCat) scope = g.label;
+    let shown = 0;
+    g.items.forEach(o=>{
+      const show = inCat && (q==="" || o.n.includes(q) || o.l.includes(q));
+      o.el.hidden = !show;
+      if(show) shown++;
+    });
+    g.el.hidden = !shown;
+    g.gc.textContent = shown;
+    matched += shown;
   });
-  empty.style.display = matched.length ? "none" : "block";
-  const scope = activeCat==="all" ? "all categories" : CATS.find(c=>c.key===activeCat).label;
-  countLine.innerHTML = `Showing <b>${matched.length}</b> of <b>${TOTAL}</b> organizations` +
+  empty.style.display = matched ? "none" : "block";
+  countLine.innerHTML = `Showing <b>${matched}</b> of <b>${TOTAL}</b> organizations` +
     (q ? ` matching “${esc(query.trim())}”` : ` · ${scope}`);
 }
 
